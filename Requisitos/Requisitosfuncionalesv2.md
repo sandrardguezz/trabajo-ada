@@ -100,6 +100,8 @@ Permitir consultar informes de facturación mensuales, trimestrales y anuales.
 38. Historial de actividad:
 Registrar acciones importantes realizadas dentro de la aplicación, como cambios,
 pagos o modificaciones de permisos.
+
+
 Buenas prácticas / funcionalidades deseables
 ● API general para futuras integraciones:
 Dejar preparada la aplicación para que en el futuro otros sistemas puedan consultar
