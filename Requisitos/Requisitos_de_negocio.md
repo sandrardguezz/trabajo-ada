@@ -1,58 +1,58 @@
 # Requisitos de negocio
 
-## Eficiencia y automatización de la gestión administrativa
+## 1. Eficiencia y automatización de la gestión administrativa
 
-- **Reducir el trabajo manual de facturación y cobros.**  
-  Turbine necesita reducir las tareas manuales relacionadas con la gestión de clientes, la generación de facturas y el seguimiento de los cobros, disminuyendo así la carga administrativa del equipo.
+- **1. Reducir el trabajo manual de facturación y cobros.**  
+  Turbine necesita reducir todas las tareas que ahora se hacen de forma manual, sobre todo las relacionadas con la gestión de clientes, la creación de facturas y el seguimiento de los cobros. De esta forma, el equipo puede ahorrar tiempo y centrarse en otras tareas más importantes.
 
-- **Mejorar la eficiencia del departamento administrativo.**  
-  La empresa necesita que la gestión administrativa pueda realizarse de forma más eficiente a medida que aumente el número de clientes y se cree un departamento dedicado a estas tareas.
+- **2. Mejorar la eficiencia del departamento administrativo.**  
+  La empresa necesita que la gestión administrativa sea más sencilla y organizada, especialmente pensando en que en el futuro tendrá más clientes y probablemente un departamento dedicado a estas tareas.
 
-- **Agilizar las operaciones administrativas frecuentes.**  
-  Turbine quiere que las operaciones habituales relacionadas con clientes, facturas y cobros puedan realizarse de forma rápida y sencilla, evitando procesos excesivamente complejos.
+- **3. Agilizar las operaciones administrativas frecuentes.**  
+  Turbine quiere que las tareas que se hacen de manera habitual, como gestionar clientes, facturas o cobros, puedan realizarse de forma rápida y sin tener que pasar por demasiados pasos.
 
-## Crecimiento y evolución del negocio
+## 2. Crecimiento y evolución del negocio
 
-- **Permitir el crecimiento de la cartera de clientes.**  
-  La solución debe permitir gestionar un volumen cada vez mayor de clientes sin que el aumento de la actividad administrativa haga inviable el funcionamiento de la empresa.
+- **1. Permitir el crecimiento de la cartera de clientes.**  
+  La solución debe estar preparada para que Turbine pueda gestionar cada vez más clientes sin que eso haga que el trabajo administrativo se vuelva demasiado complicado o difícil de controlar.
 
-- **Facilitar el crecimiento del equipo administrativo.**  
-  El sistema debe servir como base para que un futuro departamento administrativo pueda gestionar un número mayor de clientes, facturas y cobros de forma organizada.
+- **2. Facilitar el crecimiento del equipo administrativo.**  
+  El sistema debe permitir que, a medida que la empresa vaya creciendo, puedan trabajar más empleados en la gestión de clientes, facturas y cobros de forma organizada.
 
-- **Preparar la solución para futuras necesidades del negocio.**  
-  Turbine necesita que la solución pueda evolucionar en el futuro para incorporar nuevos planes, formas de facturación, entidades emisoras, canales u otras necesidades administrativas sin tener que rehacer completamente el sistema.
+- **3. Preparar la solución para futuras necesidades del negocio.**  
+  Turbine necesita que la aplicación pueda adaptarse a posibles cambios futuros, como nuevos planes, otras formas de facturación, nuevas entidades emisoras o distintos canales, sin tener que rehacer todo el sistema desde cero.
 
-## Control de facturación y cobros
+## 3. Control de facturación y cobros
 
-- **Mejorar el control sobre la facturación.**  
-  Turbine necesita disponer de una visión clara de las facturas emitidas y de su estado para conocer en cada momento qué se ha facturado, qué se ha cobrado y qué importes siguen pendientes.
+- **1. Mejorar el control sobre la facturación.**  
+  Turbine necesita tener una visión clara de todas las facturas y de su estado para poder saber fácilmente cuáles se han emitido, cuáles se han cobrado y cuáles siguen pendientes.
 
-- **Mejorar el seguimiento de los cobros y reducir los impagos no detectados.**  
-  La empresa necesita controlar de manera más eficaz los pagos pendientes y las facturas vencidas para evitar que los impagos pasen desapercibidos.
+- **2. Mejorar el seguimiento de los cobros y reducir los impagos no detectados.**  
+  La empresa necesita llevar un mejor seguimiento de las facturas pendientes o vencidas para evitar que haya impagos que pasen desapercibidos o que se detecten demasiado tarde.
 
-- **Disponer de información financiera útil para la toma de decisiones.**  
-  Turbine necesita contar con información sobre facturación, cobros, deuda pendiente y evolución de los ingresos que permita conocer mejor la situación económica relacionada con sus clientes.
+- **3. Disponer de información financiera útil para la toma de decisiones.**  
+  Turbine necesita tener información clara sobre la facturación, los cobros, las cantidades pendientes y la evolución de los ingresos para conocer mejor cómo está funcionando esta parte del negocio y poder tomar decisiones.
 
-## Fiabilidad, control y trazabilidad
+## 4. Fiabilidad, control y trazabilidad
 
-- **Garantizar la fiabilidad de la automatización.**  
-  Turbine necesita que los procesos automáticos relacionados con facturación y cobros funcionen de manera fiable y que los posibles errores puedan detectarse y gestionarse sin afectar al resto de la actividad.
+- **1. Garantizar la fiabilidad de la automatización.**  
+  Turbine necesita que los procesos automáticos relacionados con facturas y cobros funcionen de manera fiable. Si algo falla, el sistema debe permitir detectar el problema y saber qué ha ocurrido sin que el error afecte al resto de las operaciones.
 
-- **Mantener la trazabilidad de las operaciones importantes.**  
-  La empresa necesita poder conocer quién realizó las operaciones relevantes sobre clientes, facturas, cobros, permisos o configuraciones y cuándo se produjeron.
+- **2. Mantener la trazabilidad de las operaciones importantes.**  
+  La empresa necesita poder saber quién ha realizado determinadas acciones importantes dentro del sistema, como modificar clientes, facturas, cobros, permisos o configuraciones, y también cuándo se han realizado.
 
-- **Conservar el histórico de la actividad administrativa.**  
-  Turbine necesita mantener un historial coherente de clientes, facturas, cobros y cambios importantes para poder conocer posteriormente qué ocurrió y por qué.
+- **3. Conservar el histórico de la actividad administrativa.**  
+  Turbine necesita mantener un historial de los clientes, facturas, pagos y cambios importantes para poder consultar más adelante qué ocurrió y entender mejor determinadas situaciones.
 
-## Accesibilidad y organización de la información
+## 5. Accesibilidad y organización de la información
 
-- **Permitir la gestión administrativa desde diferentes lugares y dispositivos.**  
-  Turbine necesita que los empleados puedan utilizar la aplicación desde ordenador, tablet o móvil y realizar las principales tareas administrativas sin depender de un puesto de trabajo concreto.
+- **1. Permitir la gestión administrativa desde diferentes lugares y dispositivos.**  
+  Turbine necesita que sus empleados puedan utilizar la aplicación desde distintos dispositivos, como ordenador, tablet o móvil, ya que parte del equipo puede necesitar trabajar o consultar información mientras está fuera de la oficina.
 
-- **Garantizar que la información llegue a la persona responsable.**  
-  La empresa necesita que la información importante sobre clientes, facturas, pagos, incidencias o tareas llegue al usuario adecuado para evitar que existan asuntos pendientes sin atender.
+- **2. Garantizar que la información llegue a la persona responsable.**  
+  La empresa necesita que la información importante sobre clientes, facturas, pagos, incidencias o tareas llegue al empleado que corresponda, para evitar que haya asuntos pendientes que no estén siendo gestionados.
 
-## Independencia de la herramienta administrativa
+## 6. Independencia de la herramienta administrativa
 
-- **Mantener la aplicación administrativa independiente de Brain.**  
-  Turbine necesita que la herramienta interna de facturación y cobros funcione de forma independiente de su producto Brain, de manera que pueda seguir utilizándose aunque Brain cambie o evolucione en el futuro.
+- **1. Mantener la aplicación administrativa independiente de Brain.**  
+  Turbine necesita que la aplicación de facturación y cobros funcione de forma independiente a Brain. Así, aunque Brain cambie o evolucione en el futuro, la parte administrativa podrá seguir funcionando sin depender de esos cambios.
