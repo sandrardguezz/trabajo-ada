@@ -1,12 +1,30 @@
 # REQUISITOS NO FUNCIONALES
+
 ## 1. Compatibilidad
-   * Debe ser compatible con todo los tipos de SO
-   * La interfaz web debe adaptarse correctamente a pantallas de ordenadores, móviles y tablets
+### NFR1: Compatibilidad en sistemas operativos y navegadores:
+
+   * **Descripción:** Debe ser compatible con los principales tipos de sistemas operativos, sin instalaciones adicionales.
+   * **Criterio de aceptación:** Debe funcionar al 100% en Chrome, Firefox, Safari y Microsoft Edge.
+   * **Método de verificación:** Probando en los diferentes navegadores las funcionalidades de la web.
      
-## 2. Velocidad de busqueda
+### NFR2: Diseño web adaptativo:
+   * **Descripción:** Debe adaptarse a las diferentes pantallas de móviles, ordenadores, tablets y portatiles.
+   * **Criterio de aceptación:** Debe verse correctamente y al completo en cualquiera de los dispositivos.
+   * **Método de verificación:** Probando en los diferentes dispositivos si se ve y se adapta de forma correcta.
+
+     
+## 2. Rendimiento y eficiencia
+### NFR3: Rendimiento del servidor en búsquedas y consultas:
+   * **Descripción:** Las consultas de la base de datos, las búsquedas globales y la navegación deben tener una baja latencia para obtener una gran fluidez de uso.
+   * **Criterio de aceptación:** El 95% de las consultas y búsquedas deben ejecutarse en menos de 1 segundo, independientemente del número de usuarios presentes.
+   * **Método de verificación:**
+
+### NFR4: Procesamiento de tareas pesadas:
+   * **Descripción:** Las acciones que son largas y costosas para el sistemas se deben ejecutar en segundo plano para permitir al usuario seguir actuando.
+   * **Criterio de aceptación:** El programa devolverá el control al usuario en menos de medio segundo tras ejecutar la tarea, informando el avance en un indicador.
+   * **Método de verificación:**
    * Las consultas y los accesos a los diferentes apartados deben hacerse en un tiempo muy bajo, a ser posible 1 minuto y en pocos clics
-   * No quiere tener mil pantallas para acceder a una operación sencilla
-   * Las acciones que son largas y costosas para el sistemas se deben ejecutar en segundo plano para permitir al usuario seguir actuando
+     
      
 ## 3. Datos
    * Los datos de los clientes deben quedar guardados en la base de datos todo el tiempo que seas jurídicamente posible
