@@ -58,7 +58,7 @@
 ### NFR10: Seguimiento de los registros:
    * **Descripción:** El sistema tendrá un informe histórico inalterable de todas las operaciones sensibles realizadas.
    * **Criterio de aceptación:** En el registro debe aparecer la acción realizada, a quién se le realizó, la fecha, el usuario y los respectivos cambios realizados.
-   * **Método de verificación:** Pruebas manuales intentando modificar los registros y comprobando si quedan constancia de todos los necesairos.
+   * **Método de verificación:** Pruebas manuales intentando modificar los registros y comprobando si quedan constancia de todos los necesarios.
 
 
 ## 5.Gestión de datos:
@@ -67,41 +67,33 @@
    * **Criterio de aceptación:** Prohibido el uso de float o double en la base de datos.
    * **Método de verificación:** Pruebas de ejecución con decimales y revisión del diagrama DDL de la base de datos.
 
+### NFR12: Inmutabilidad de facturas emitidas:
+   * **Descripción:** Las facturas no podrán ser modificadas una vez presentadas a la administración.
+   * **Criterio de aceptación:** Imposibilidad de hacer en la base de datos un DELETE o un UPDATE de una factura que está en estado "Emitida".
+   * **Método de verificación:** Pruebas lanzando peticiones de modificación y borrado sobre las facturas emitidas.
 
-    
-  * Facilidad para añadir y desactivar usuarios 
-  * Limitación de intentos fallidos de inicio de sesión
-  * Facilidad para cambiar de rol
-  * Dejar constancia del receptor de las facturas y las notificaciones que se le envian a los trabajadores
-  * El administrador debe poder acceder a los últimos accesos y cambios de cada uno de los usuarios
-  * Debe permitir modificar el prototipo de facturas para un futuro
-  * No se deben duplicar nada de los datos ni acciones si hay un fallo del sistema o una recarga
-  * 
+### NFR13: Conservación de datos y escalabilidad de almacenamiento:
+   * **Descripción:** Los datos de los clientes deben quedar guardados en la base de datos todo el tiempo que seas jurídicamente posible y deben poder soportar el crecimiento de datos a largo plazo.
+   * **Criterio de aceptación:** Los clientes que están dados de baja conservan sus datos en la base de datos tanto personales como contables. Los tiempos de consultas con más de 100.000 facturas debe ser menor a 1 segundo.
+   * **Método de verificación:** Pruebas de consultas a clientes inactivos. ºººººººººCOMO PRUEBO LO DE LA CANTIDAD DE FACURASººººº
 
-  *    * Los datos de los clientes deben quedar guardados en la base de datos todo el tiempo que seas jurídicamente posible
-   * Debe cumplir con la privacidad de los datos personales y fiscales de los clientes
-   * Aunque el cliente se de baja debe mantenerse los datos de este
-   * La base de datos y el sistema deben soportar un alto crecimiento futuro
-   * Separar los archivos temporales de los oficiales
+### NFR14: Prevención de duplicados:
+   * **Descripción:**No se deben duplicar nada de los datos ni acciones si hay un fallo del sistema o una recarga.
+   * **Criterio de aceptación:** Np pueden haber recargos tras hacer estas acciones.
+   * **Método de verificación:** Pruebas manuales de estas situaciones.
 
-## 5. Notificaciones
-   * Las notificaciones se harán a través de WhatshApp o Email, se elegirá en la ficha del cliente
-   * Si llega un cobro sin referencia clara, debe quedar pendiente de revisión manual
+### NFR15: Almacenamiento diferenciado de archivos:
+   * **Descripción:** Separar los archivos temporales de los oficiales y legales.
+   * **Criterio de aceptación:** Eliminación automática de los archivos temporales tras un período configurable, manteniendo intactos los documentos legales y oficiales.
+   * **Método de verificación:** Pruebas de limpieza y revisión de la base de datos del sistema transcurrido el teimpo indicado.
+     
 
-## 6. Documentación:
-   * Debe de dejarse una API documentada para futuras modificaciones o avances
- 
-## 7. Factura
-  * Si aumentamos numero de tipos de empresa, las facturas anteriores no deben modificarse al abrirlas una vez hayan cambiado
-  * La factura tiene que permitir aceptar cualquier moneda
-  * Los impuestos de la factura deben poder configurarse
-  * Las facturas deben cumplir con una numeracion correlativa estandar
-  * Los campos del NIF tienen que ser capaces de introducir cualquier numeración y tipo
-  * La dirección no tiene que tener campos obligatorios como la provincia, porque podemos facturar en otro país
-  * Las facturas no podrán ser modificadas una vez presentadas a la administración
-  * Debemos tener acceso a una lista ordenada de las facturas basándonos en diferentes criterios como el cliente, la fecha, el estado del pago y el tipo de empresa
-  * Cualquier cambio en la factura debe quedar registrada su traza
-  * Los prorrateos deben ser enviados a revisar antes de enviarse la correspondiente factura al cliente
+## 6. Mantenibilidad del sistema y documentación:
+### NFR16: Flexibilidad de configuraciones:
+   * **Descripción:** Las reglas globales (tarifas, impuestos, tipos de empresas, formatos de identificadores y moneda) deben ser alterados sin alterar los emitidos anteriormente.
+   * **Criterio de aceptación:** La modificación de una tarifa o tipo de tarifas no afectará a las facturas anteriores.
+   * **Método de verificación:** Pruebas de consultas a facturas anteriores tras haber realizado un cambio en alguna de las reglas globales.
+
+
   
-## 8. Tipos de empresas
-  * Cuando el responsable aprueba el cambio del numero de tipos, debe quedar registrado quién lo aprobó, cuándo y cuál era el precio anterior y el nuevo.
+  
