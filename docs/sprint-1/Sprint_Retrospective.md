@@ -30,7 +30,7 @@ Las tareas seleccionadas para este Sprint 1 y sus responsables son las siguiente
 | Especificación de casos de uso | Adiel Rodríguez | Completado |
 | Diagrama UML de casos de uso | Sergio Ruiz Navas | Pendiente |
 | Sprint Planning | Sandra Rodríguez | Completado |
-| Sprint Backlog | Sandra Rodríguez | Completado |
+| Sprint Retrospective | Sandra Rodríguez | Completado |
 | Sprint Review | Sandra Rodríguez | Pendiente hasta el cierre del Sprint |
 
 ---
