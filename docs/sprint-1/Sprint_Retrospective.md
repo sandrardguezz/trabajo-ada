@@ -1,4 +1,4 @@
-# Sprint Backlog - Sprint 1
+# Sprint Retrospective - Sprint 1
 
 **Proyecto:** Turbine  
 **Inicio del Sprint:** 1 de octubre de 2026  
