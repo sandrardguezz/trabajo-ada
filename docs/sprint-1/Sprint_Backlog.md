@@ -45,7 +45,7 @@ Una vez avanzado el documento de requisitos, Robert Marian Mustafa se ha encarga
 
 Sergio Ruiz Navas se ha encargado del diagrama UML de casos de uso.
 
-La documentación relacionada con la organización Scrum del Sprint 1, formada por el Sprint Planning, Sprint Backlog y Sprint Review, ha sido asignada a Sandra Rodríguez.
+La documentación relacionada con la organización Scrum del Sprint 1, formada por el Sprint Planning, Sprint Backlog, Sprint Review y Sprint Retrospective, ha sido asignada a Sandra Rodríguez.
 
 ---
 
