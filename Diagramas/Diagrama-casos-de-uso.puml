@@ -1,52 +1,71 @@
 @startuml
 left to right direction
+skinparam shadowing false
+skinparam ArrowColor #444444
+skinparam nodesep 25
+skinparam ranksep 70
+
 
 actor "Superadministrador" as SA
 actor "Administrador" as AD
 actor "Usuario Operativo" as OP
 actor "Pasarela de pagos" as PAG <<externo>>
-actor "Servicio de mensajeria" as MSG <<externo>>
+actor "Servicio de mensajería" as MSG <<externo>>
 SA --|> AD
 
-rectangle "Sistema de facturacion y cobros de Turbine" {
-  usecase "CU01 Iniciar sesion\ny recuperar acceso" as CU01
-  usecase "CU02 Gestionar usuarios,\nroles y permisos" as CU02
-  usecase "CU03 Gestionar clientes \ny contactos" as CU03
-  usecase "CU04 Importar clientes\nmediante CSV" as CU04
-  usecase "CU05 Gestionar acuerdos\ncomerciales y tarifas" as CU05
-  usecase "CU06 Gestionar suscripciones\ny pausas" as CU06
-  usecase "CU07 Crear y modificar  \nfacturas" as CU07
-  usecase "CU08 Procesar y conciliar\npagos" as CU08
-  usecase "CU09 Enviar recordatorios,\nnotificaciones y comunicaciones" as CU09
-  usecase "CU10 Procesar la baja   \ndel cliente" as CU10
-  usecase "CU11 Busqueda y filtrado" as CU11
-  usecase "CU12 Consultar tablero\ne informes financieros" as CU12
-  usecase "CU13 Configuracion global\ny auditoria" as CU13
+
+rectangle "Sistema de facturación y cobros de Turbine" {
+  package "Acceso y usuarios" {
+    usecase "CU01 Iniciar sesión\ny recuperar acceso" as CU01
+    usecase "CU02 Gestionar usuarios,\nroles y permisos" as CU02
+  }
+
+  package "Clientes y acuerdos"  {
+    usecase "CU03 Gestionar clientes\ny contactos" as CU03
+    usecase "CU04 Importar clientes\nmediante CSV" as CU04
+    usecase "CU05 Gestionar acuerdos\ncomerciales y tarifas" as CU05
+  }
+
+  package "Suscripciones y facturación"  {
+    usecase "CU06 Gestionar suscripciones\ny pausas" as CU06
+    usecase "CU07 Crear y modificar\nfacturas" as CU07
+    usecase "CU10 Procesar la baja\ndel cliente" as CU10
+  }
+
+  package "Cobros y comunicaciones"  {
+    usecase "CU08 Procesar y conciliar\npagos" as CU08
+    usecase "CU09 Enviar recordatorios,\nnotificaciones y comunicaciones" as CU09
+  }
+
+  package "Consulta y administración"  {
+    usecase "CU11 Búsqueda y filtrado" as CU11
+    usecase "CU12 Consultar tablero\ne informes financieros" as CU12
+    usecase "CU13 Configuración global\ny auditoría" as CU13
+  }
 }
 
-OP --> CU01
-AD --> CU01
-AD --> CU02
-AD --> CU03
-OP --> CU03
-AD --> CU04
-OP --> CU04
-SA --> CU05
-AD --> CU05
-OP --> CU05
-AD --> CU06
-OP --> CU06
-AD --> CU07
-OP --> CU07
-OP --> CU08
-OP --> CU09
-AD --> CU10
-OP --> CU10
-AD --> CU11
-OP --> CU11
-AD --> CU12
-SA --> CU13
+OP -- CU01
+OP -- CU03
+OP -- CU04
+OP -- CU05
+OP -- CU06
+OP -- CU07
+OP -- CU08
+OP -- CU09
+OP -- CU10
+OP -- CU11
+AD -- CU01
+AD -- CU02
+AD -- CU03
+AD -- CU04
+AD -- CU05
+AD -- CU06
+AD -- CU07
+AD -- CU10
+AD -- CU11
+AD -- CU12
+SA -- CU05
+SA -- CU13
 CU08 -- PAG
 CU09 -- MSG
-CU08 ..> CU09 : <<include>>
 @enduml
