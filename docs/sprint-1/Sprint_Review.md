@@ -30,6 +30,8 @@ También se preparó el repositorio de GitHub y el GitHub Project que utilizarí
 
 En este momento se acordó comenzar por el análisis de los requisitos del sistema y, a partir de ellos, avanzar en la identificación y descripción de los casos de uso.
 
+Asistentes: Loretta Martín, Robert Marian Mustafa, Adiel Rodríguez, Sandra Rodríguez y Hugo Trujillo
+
 ### Seguimiento 2. Revisión del trabajo realizado
 
 Durante el segundo seguimiento se puso en común el trabajo que se había desarrollado hasta ese momento.
@@ -39,6 +41,8 @@ La mayor parte de los requisitos ya se encontraban elaborados y se había avanza
 Se revisó que las diferentes partes fueran coherentes entre sí y se comentaron algunas dudas relacionadas con la información obtenida de la entrevista inicial con el cliente.
 
 En este punto el trabajo avanzaba según lo previsto inicialmente.
+
+Asistentes: Loretta Martín, Robert Marian Mustafa, Adiel Rodríguez, Sandra Rodríguez, Sergio Ruiz y Hugo Trujillo
 
 ### Seguimiento 3. Ampliación de la entrevista
 
@@ -51,6 +55,8 @@ Después de revisar la ampliación, el equipo comprobó que algunos de los nuevo
 Por este motivo se decidió mantener como válida la primera versión elaborada durante el Sprint 1 y trasladar al siguiente Sprint la revisión y actualización de estos documentos teniendo en cuenta la nueva información.
 
 También se decidió que el diagrama UML de casos de uso, que todavía no se había realizado, se elaboraría en el siguiente Sprint utilizando ya toda la información disponible.
+
+Asistentes: Loretta Martín, Robert Marian Mustafa, Adiel Rodríguez, Sandra Rodríguez, Sergio Ruiz y Hugo Trujillo
 
 ---
 
