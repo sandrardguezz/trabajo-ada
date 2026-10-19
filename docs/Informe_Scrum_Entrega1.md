@@ -258,6 +258,13 @@ Esta situación permitió comprobar la importancia de mantener relacionados los 
 ---
 
 # 4. Sprint 2
+#### Asistentes
+
+- Sandra Rodríguez.
+- Robert Marian Mustafa.
+- Loretta Martín.
+- Sergio Ruiz.
+- Hugo Trujillo.
 
 ## 4.1. Duración
 
