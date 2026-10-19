@@ -15,7 +15,7 @@ También había que dejar claro todo el objetivo del proyecto, sus requisitos, c
 
 ---
 ## 2. Seguimiento realizado durante el Sprint
-
+Asistentes: Loretta Martín, Robert Marian Mustafa, Sergio Ruiz, Sandra Rodríguez, y Hugo Trujillo.
 Durante el Sprint 2 se realizaron varios puntos de seguimiento para comprobar el avance del trabajo y coordinar las tareas del equipo.
 
 ### Seguimiento 1. Realización del diagrama UML
