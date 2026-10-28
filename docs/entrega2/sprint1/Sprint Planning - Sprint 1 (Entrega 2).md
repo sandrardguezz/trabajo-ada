@@ -22,7 +22,7 @@ Para ello trabajaremos principalmente en la primera versión del diagrama físic
 
 Para esta segunda entrega hemos establecido una nueva organización del equipo, teniendo en cuenta tanto la carga de trabajo actual como la contribución realizada por cada uno durante la primera entrega.
 
-Telesforo Romero asumirá el rol de Scrum Master durante el Sprint 1 y Adiel Rodríguez asumirá el rol de Product Owner.
+Telesforo Romero asumirá el rol de Scrum Master durante la entrega 2 y Adiel Rodríguez asumirá el rol de Product Owner.
 
 Estos cambios no se deben a un mal desempeño o problema en la anterior entrega si no a una decisión consensuada para variar roles dentro del equipo y hacer de todo dentro del proyecto.
 
