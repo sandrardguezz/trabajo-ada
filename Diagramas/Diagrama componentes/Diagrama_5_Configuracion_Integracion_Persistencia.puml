@@ -1,0 +1,23 @@
+@startuml
+
+package "Configuración e integración" {
+    [Configuración global] as config
+    [Auditoría] as auditoria
+    [API de integración] as api
+}
+
+package "Persistencia" {
+    [Acceso a datos] as datos
+    [Base de datos] as database
+}
+
+config -(0-auditoria : IAuditoria
+config -(0-api : IAPI
+
+config -(0-datos : IDatos
+auditoria -(0-datos : IDatos
+api -(0-datos : IDatos
+
+datos -(0-database : IDatabase
+
+@enduml
