@@ -1,0 +1,26 @@
+@startuml
+
+
+package "Gestión comercial" {
+    [Gestión de clientes\ny contactos] as clientes
+    [Importación CSV] as csv
+    [Acuerdos comerciales\ny tarifas] as acuerdos
+    [Suscripciones y bajas] as suscripciones
+}
+
+package "Persistencia" {
+    [Acceso a datos] as datos
+    [Base de datos] as database
+}
+
+clientes -(0-csv : IImportacionCSV
+clientes -(0-acuerdos : IAcuerdos
+acuerdos -(0-suscripciones : ISuscripciones
+
+clientes -(0-datos : IDatos
+acuerdos -(0-datos : IDatos
+suscripciones -(0-datos : IDatos
+
+datos -(0-database : IDatabase
+
+@enduml
