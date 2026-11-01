@@ -1,0 +1,27 @@
+@startuml
+
+
+
+package "Presentación" {
+    [Interfaz web] as web
+}
+
+package "Seguridad y usuarios" {
+    [Autenticación] as auth
+    [Gestión de usuarios,\nroles y permisos] as usuarios
+}
+
+package "Persistencia" {
+    [Acceso a datos] as datos
+    [Base de datos] as database
+}
+
+web -(0-auth : IAuth
+web -(0-usuarios : IUsuarios
+
+auth -(0-datos : IDatos
+usuarios -(0-datos : IDatos
+
+datos -(0-database : IDatabase
+
+@enduml
