@@ -1,0 +1,50 @@
+@startuml
+
+package "Facturación" {
+    [Gestión de facturas] as facturas
+    [Facturación recurrente] as recurrente
+    [Generación de PDF] as pdf
+}
+
+package "Cobros y comunicaciones" {
+    [Conciliación de pagos] as pagos
+    [Gestión de impagos] as impagos
+    [Recordatorios automáticos] as recordatorios
+    [Notificaciones] as notif
+}
+
+package "Procesos automáticos" {
+    [Planificador de tareas] as scheduler
+}
+
+package "Servicios externos" {
+    [Pasarela de pagos] as pasarela
+    [Servicio de mensajería] as mensajeria
+}
+
+package "Persistencia" {
+    [Acceso a datos] as datos
+    [Base de datos] as database
+}
+
+facturas -(0-pdf : IPDF
+facturas -(0-recurrente : IFacturacionRecurrente
+facturas -(0-pagos : IPagos
+
+pagos -(0-impagos : IImpagos
+impagos -(0-recordatorios : IRecordatorios
+recordatorios -(0-notif : INotificacion
+
+scheduler -(0-recurrente : IFacturacionRecurrente
+scheduler -(0-recordatorios : IRecordatorios
+
+pagos -(0-pasarela : IPasarelaPago
+notif -(0-mensajeria : IMensajeria
+
+facturas -(0-datos : IDatos
+pagos -(0-datos : IDatos
+notif -(0-datos : IDatos
+
+datos -(0-database : IDatabase
+
+@enduml
