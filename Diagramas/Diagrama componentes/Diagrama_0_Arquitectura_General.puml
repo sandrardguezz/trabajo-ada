@@ -1,0 +1,35 @@
+@startuml
+
+top to bottom direction
+
+
+[Presentación] as PRESENTACION
+[Seguridad y usuarios] as SEGURIDAD
+[Gestión comercial] as COMERCIAL
+[Facturación] as FACTURACION
+[Cobros y comunicaciones] as COBROS
+[Consulta y administración] as CONSULTA
+[Configuración e integración] as CONFIGURACION
+[Procesos automáticos] as PROCESOS
+[Persistencia] as PERSISTENCIA
+[Servicios externos] as EXTERNOS
+
+PRESENTACION --> SEGURIDAD
+PRESENTACION --> COMERCIAL
+PRESENTACION --> CONSULTA
+PRESENTACION --> CONFIGURACION
+
+COMERCIAL --> FACTURACION
+FACTURACION --> COBROS
+
+PROCESOS --> FACTURACION
+PROCESOS --> COBROS
+
+COBROS --> EXTERNOS
+
+COMERCIAL --> PERSISTENCIA
+COBROS --> PERSISTENCIA
+CONSULTA --> PERSISTENCIA
+CONFIGURACION --> PERSISTENCIA
+
+@enduml
