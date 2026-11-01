@@ -1,0 +1,21 @@
+@startuml
+
+package "Consulta y administración" {
+    [Búsqueda y filtrado] as busqueda
+    [Dashboard financiero] as dashboard
+    [Informes] as informes
+}
+
+package "Persistencia" {
+    [Acceso a datos] as datos
+    [Base de datos] as database
+}
+
+busqueda -(0-datos : IDatos
+dashboard -(0-informes : IInformes
+dashboard -(0-datos : IDatos
+informes -(0-datos : IDatos
+
+datos -(0-database : IDatabase
+
+@enduml
