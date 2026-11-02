@@ -1,0 +1,74 @@
+@startuml
+
+
+class Usuario {
+  - id : int
+  - nombre : string
+  - apellido1 : string
+  - apellido2 : string
+  - correo_turbine : string
+  - contrasena : string
+  + iniciarSesion() : boolean
+  + gestionarClientesAsignados() : void
+}
+
+class Administrador {
+  + gestionarCarteraExtendida() : void
+}
+
+class SuperAdministrador {
+  + asignarTareasYRoles() : void
+  + gestionarSistemaCompleto() : void
+}
+
+Usuario <|-- Administrador
+Administrador <|-- SuperAdministrador
+
+
+class Cliente {
+  - id : int
+  - nombre : string
+  - apellido1 : string
+  - apellido2 : string
+  - facturacion_hecha : boolean 
+  - datos_comerciales : string
+  - datos_fiscales : string
+  - baja : boolean
+  + darDeBaja() : void
+  + actualizarDatos() : void
+}
+
+class Factura {
+  - id : int
+  - fechaInicio : date
+  - automatica : boolean
+  - posibleDescuento : double
+  - plan : string
+  + calcularTotal() : double
+  + aplicarDescuento() : void
+}
+
+class Pago {
+  - id : int
+  - metodo : string
+  + procesarPago() : boolean
+}
+
+class Comunicacion {
+  - id : int
+  - tipo : string
+  - servicio : string
+  + enviarEmailRecordatorio() : void
+}
+
+
+Usuario "1" --> "*" Cliente : gestiona >
+Factura ..> Cliente : <<usa>>
+
+Cliente "1" --> "*" Pago : realiza >
+Factura "1" --> "*" Pago : asocia >
+
+Comunicacion "*" --> "1" Cliente : dirigida a >
+Comunicacion "*" --> "1" Factura : asociada a >
+
+@enduml
