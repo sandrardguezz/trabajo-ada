@@ -1,0 +1,47 @@
+@startuml
+autonumber
+actor Administrador as admin
+participant InterfazGeneracionFacturas as interfaz
+control ControladorFactura as controlador
+participant ValidadorAnomalias as validar
+database DataBase as database
+participant Factura
+participant GeneradorPDF as PDF
+
+admin -> interfaz: introducirDatos(cliente, concepto, importe, descuento)
+activate interfaz
+
+interfaz -> controlador: solicitarCreacionFactura(datos)
+activate controlador
+
+controlador -> validar: validarDatos(datos)
+activate validar
+validar --> controlador: True
+deactivate validar
+
+controlador -> database: guardarFactura(datos)
+activate database
+
+database -> Factura: crearFactura()
+activate Factura
+Factura --> database: factura
+deactivate Factura
+
+database --> controlador: True
+deactivate database
+
+controlador -> PDF: generarPDF(Factura) 
+activate PDF
+PDF --> controlador: facturaPDF
+deactivate PDF
+
+
+
+controlador --> interfaz: True
+deactivate controlador
+
+interfaz --> admin: True
+deactivate interfaz
+
+
+@enduml
