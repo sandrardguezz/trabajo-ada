@@ -1,1 +1,54 @@
-Codigo plantUML
+@startuml
+autonumber
+actor Usuario as user
+participant InterfazFuenteExterna as interfaz
+control ControladorPago as controlador
+database DataBase as database
+participant Pago
+participant EliminadorRecordatorios as recordatorios
+participant ServicioEmail as email
+
+user -> interfaz: procesarPago(id_factura, fuente, importe)
+activate interfaz
+
+interfaz -> controlador: conciliarPago(id_factura, datos)
+activate controlador
+
+controlador -> database: validarPago(id_factura, datos)
+activate database
+database --> controlador: True
+deactivate database
+
+controlador -> database: registrarPago(datos)
+activate database
+
+
+database -> Pago: crearPago()
+activate Pago
+Pago --> database: pago
+deactivate Pago
+
+database --> controlador: True
+deactivate database
+
+opt si la factura tiene recordatorios activos
+       controlador -> recordatorios: detenerRecordatorios(id_factura)
+       activate recordatorios
+       recordatorios --> controlador: True
+       deactivate recordatorios
+end
+
+controlador -> email: enviarNotificacion(clienteEmail, facturaPDF)
+activate email
+email --> controlador: True 
+'Aqui si se pone la respuesta, porque se considera que se debe mandar el emial de la factura, para que el flujo siga, no como en el ejemplo de clase'
+deactivate email
+
+controlador --> interfaz: True
+deactivate controlador
+
+interfaz --> user: True
+deactivate interfaz
+
+
+@enduml
