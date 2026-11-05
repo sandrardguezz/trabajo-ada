@@ -46,6 +46,7 @@ class Factura {
   - plan : string
   + calcularTotal() : double
   + aplicarDescuento() : void
+  + generarPdf(): void
 }
 
 class Pago {
