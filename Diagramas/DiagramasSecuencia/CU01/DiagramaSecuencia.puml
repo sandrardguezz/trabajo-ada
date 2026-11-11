@@ -1,1 +1,33 @@
-Codigo plantUML
+@startuml
+title CU01 - Iniciar sesión
+
+actor "Usuario\n(Superadministrador,\nAdministrador o Usuario Operativo)" as Usuario
+boundary "Pantalla de inicio de sesión" as Pantalla
+control "Controlador de autenticación" as Controlador
+database "Base de datos" as BD
+participant "Servicio de correo" as Correo
+
+Usuario -> Pantalla: Accede a la pantalla
+Usuario -> Pantalla: Introduce correo y contraseña
+Pantalla -> Controlador: validarCredenciales(correo, contraseña)
+Controlador -> BD: obtenerCuenta(correo)
+BD --> Controlador: cuenta, contraseña, estado,\nrol e intentos fallidos
+
+alt Cuenta activa y contraseña correcta
+    Controlador -> BD: reiniciarIntentosFallidos(cuenta)
+    Controlador --> Pantalla: acceso concedido(rol)
+    Pantalla --> Usuario: Mostrar panel según el rol
+
+else Contraseña incorrecta; menos de 5 intentos
+    Controlador -> BD: incrementarIntentosFallidos(cuenta)
+    Controlador --> Pantalla: mostrarError
+    Pantalla --> Usuario: "Usuario o contraseña incorrectos"
+
+else Quinto fallo consecutivo
+    Controlador -> BD: bloquearCuentaTemporalmente(cuenta)
+    Controlador -> Correo: notificarBloqueo(administrador, cuenta)
+    Controlador --> Pantalla: mostrarError y aviso de bloqueo
+    Pantalla --> Usuario: Mostrar mensaje de bloqueo
+end
+
+@enduml
