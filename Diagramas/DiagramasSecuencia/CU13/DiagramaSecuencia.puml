@@ -1,1 +1,38 @@
-Codigo plantUML
+@startuml
+'solo cuubre el fluijo principal del cu13
+autonumber
+actor Superadministrador as superadmin
+participant InterfazConfiguracion as interfaz
+control ControladorConfiguracion as controlador
+database DataBase as bd
+participant ServicioAuditoria as auditoria
+
+superadmin -> interfaz: modificarConfiguracion(parametro, nuevoValor)
+activate interfaz
+
+interfaz -> controlador: solicitarCambioConfiguracion(parametro, nuevoValor)
+activate controlador
+
+controlador -> bd: guardarConfiguracion(parametro, nuevoValor)
+activate bd
+bd --> controlador: True
+deactivate bd
+
+controlador -> auditoria: registrarCambio(usuario, parametro, nuevoValor)
+activate auditoria
+
+auditoria -> bd: guardarRegistroAuditoria(datos)
+activate bd
+bd --> auditoria: True
+deactivate bd
+
+auditoria --> controlador: True
+deactivate auditoria
+
+controlador --> interfaz: True
+deactivate controlador
+
+interfaz --> superadmin: True
+deactivate interfaz
+
+@enduml
