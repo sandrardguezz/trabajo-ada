@@ -1,5 +1,5 @@
 @startuml
-'solo cuubre el fluijo principal del cu13
+
 autonumber
 actor Superadministrador as superadmin
 participant InterfazConfiguracion as interfaz
