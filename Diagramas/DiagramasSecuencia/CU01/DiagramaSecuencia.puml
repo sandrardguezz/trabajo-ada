@@ -1,5 +1,5 @@
 @startuml
-title CU01 - Iniciar sesión
+title CU01.1 - Iniciar sesión
 
 actor "Usuario\n(Superadministrador,\nAdministrador o Usuario Operativo)" as Usuario
 boundary "Pantalla de inicio de sesión" as Pantalla
