@@ -1,1 +1,43 @@
+@startuml
+title CU01.2 - Recuperar contraseña
 
+actor "Usuario" as Usuario
+boundary "Pantalla" as Pantalla
+control "Controlador de autenticación" as Controlador
+database "Base de datos" as BD
+participant "Servicio de correo" as Correo
+
+Usuario -> Pantalla: Hace clic en "He olvidado mi contraseña"
+Pantalla --> Usuario: Solicita correo corporativo
+Usuario -> Pantalla: Introduce su correo
+Pantalla -> Controlador: solicitarRecuperacion(correo)
+
+Controlador -> BD: buscarCuenta(correo)
+BD --> Controlador: cuenta encontrada
+
+Controlador -> Controlador: generar token con validez de 15 minutos
+Controlador -> BD: guardarToken(cuenta, token, fechaExpiracion)
+Controlador -> Correo: enviarEnlace(correo, token)
+Correo --> Usuario: Enviar enlace de recuperación
+
+Usuario -> Pantalla: Abre el enlace recibido
+Pantalla -> Controlador: validarEnlace(token)
+Controlador -> BD: consultarToken(token)
+BD --> Controlador: token y fechaExpiracion
+
+alt Token válido y dentro de los 15 minutos
+    Controlador --> Pantalla: mostrar formulario de nueva contraseña
+    Pantalla --> Usuario: Solicitar nueva contraseña
+    Usuario -> Pantalla: Introduce nueva contraseña
+    Pantalla -> Controlador: cambiarContrasena(token, nuevaContrasena)
+    Controlador -> BD: actualizar contraseña y marcar token como usado
+    BD --> Controlador: actualización correcta
+    Controlador --> Pantalla: confirmar cambio y volver al inicio de sesión
+    Pantalla --> Usuario: Mostrar confirmación e inicio de sesión
+
+else Token caducado o inválido
+    Controlador --> Pantalla: denegar acceso y solicitar otro enlace
+    Pantalla --> Usuario: Mostrar aviso de enlace caducado o inválido
+end
+
+@enduml
