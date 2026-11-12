@@ -1,4 +1,3 @@
-
 @startuml
 
 entity "Usuario" as usuario {
@@ -76,20 +75,13 @@ entity "FACTURA" as factura {
   * id_fiscal_emision : VARCHAR(30)
   * domicilio_fiscal_emision : VARCHAR(255)
     recordatorios_pausados_hasta : DATE
+  * num_lineas : INT
+  * concepto_linea : VARCHAR(255)
+  * cantidad_lineas : INT
+  * precio_unitario_centimos_lineas : INT
+  * descuento_porcentaje_lineas : INT
+  * impuesto_porcentaje_lineas : INT
 }
-
-entity "LINEA_FACTURA" as linFact {
-  * id_linea : INT <<PK>>
-  --
-  * id_factura : INT <<FK>>
-  * num_linea : INT
-  * concepto : VARCHAR(255)
-  * cantidad : INT
-  * precio_unitario_centimos : INT
-  * descuento_porcentaje : INT
-  * impuesto_porcentaje : INT
-}
-
 entity "PAGO" as pago {
   * id_pago : INT <<PK>>
   --
@@ -160,6 +152,5 @@ factura     |o--o{ factura
 factura     |o--o{ pago         : "se cobra"
 factura     ||--o{ comunicacion : "se notifica"
 factura     |o--o{ incidencia   : "tiene"
-factura     ||--|{ linFact      : "tiene lineas"
 
 @enduml
