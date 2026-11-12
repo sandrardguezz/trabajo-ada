@@ -1,1 +1,42 @@
-Codigo plantUML
+@startuml
+title CU04 - Importar clientes mediante CSV
+
+actor "Administrador o\nUsuario Operativo" as Usuario
+boundary "Pantalla" as Pantalla
+control "Sistema" as Sistema
+database "Base de datos" as BD
+
+Usuario -> Pantalla: Sube el archivo CSV
+Pantalla -> Sistema: Enviar archivo
+Sistema -> Sistema: Comprobar y leer archivo
+
+alt Archivo incorrecto o corrupto
+    Sistema --> Pantalla: Mostrar error y pedir otro archivo
+    Pantalla --> Usuario: Avisar que el archivo no es válido
+
+else Archivo válido
+    Sistema --> Pantalla: Mostrar vista previa
+    Pantalla --> Usuario: Mostrar datos del archivo
+
+    Usuario -> Pantalla: Relacionar columnas con campos
+    Pantalla -> Sistema: Enviar correspondencia de columnas
+    Sistema -> BD: Comprobar CIF y clientes existentes
+    BD --> Sistema: Devolver filas con errores o duplicados
+
+    alt Hay filas problemáticas
+        Sistema --> Pantalla: Marcar filas en rojo
+        Pantalla --> Usuario: Permitir corregir, sobrescribir o ignorar filas
+        Usuario -> Pantalla: Resolver las filas y confirmar
+    else No hay filas problemáticas
+        Usuario -> Pantalla: Confirmar importación
+    end
+
+    Pantalla -> Sistema: Iniciar importación
+    Sistema -> BD: Guardar clientes seleccionados
+    BD --> Sistema: Informar resultado
+    Sistema --> Pantalla: Notificar que terminó la importación
+    Pantalla --> Usuario: Mostrar confirmación
+end
+
+@enduml
+
