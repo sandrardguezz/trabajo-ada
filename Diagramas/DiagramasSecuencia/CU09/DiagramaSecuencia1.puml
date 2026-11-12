@@ -1,0 +1,35 @@
+@startuml
+title CU09.1 - Enviar recordatorios de pago
+
+participant "Proceso automático" as Proceso
+participant "Sistema" as Sistema
+database "Base de datos" as BD
+participant "Canal de envío\n(Email o WhatsApp)" as Canal
+actor "Administrador" as Administrador
+
+Proceso -> Sistema: Revisar facturas en su fecha límite
+Sistema -> BD: Consultar estado y datos de las facturas
+BD --> Sistema: Devolver estado, cadencia, plantilla y contacto
+
+loop Por cada factura
+    alt La factura está pagada
+        Sistema -> BD: Detener recordatorios
+        Sistema -> Administrador: Notificar el pago
+
+    else La factura sigue pendiente
+        alt Está marcada "En disputa"
+            Sistema -> BD: Mantener recordatorios pausados
+
+        else No está en disputa
+            Sistema -> Canal: Enviar recordatorio al contacto
+
+            alt Envío correcto
+                Sistema -> BD: Guardar envío en el histórico
+            else Error de envío
+                Sistema -> BD: Registrar fallo, crear tarea y programar reintento
+            end
+        end
+    end
+end
+
+@enduml
