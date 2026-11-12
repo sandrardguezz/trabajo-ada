@@ -1,2 +1,5 @@
-Aunque parezca que el CU09 es solo sobre las notificaciones, tenemos que englobar mas cosas, por ejemplo, que el sistema puede usuario puede marcar una factuara en disputa o puede revisar la bandeja donde tiene todas las facturas pendientes
-Por es
+Aunque parezca que el CU09 es solo sobre las notificaciones, tenemos que englobar mas cosas, por ejemplo, que el sistema puede usuario puede marcar una factuara en disputa o 
+puede revisar la bandeja donde tiene todas las facturas pendientes.
+Por eso he divido en dos diagramas para que se vea mas claro:
+  1. Envio automatico de los mensajes de recordatorios
+  2. Consultar tareas y marcar facturas en disputa
