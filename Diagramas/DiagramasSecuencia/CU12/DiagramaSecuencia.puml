@@ -1,1 +1,43 @@
-Codigo plantUML
+@startuml
+autonumber
+
+title CU12 - Consultar tablero e informes financieros
+
+actor "Administrador / Superadministrador" as Usuario
+boundary "Interfaz web" as Web
+participant "Seguridad y usuarios" as Seguridad
+control "Dashboard financiero" as Dashboard
+control "Informes" as Informes
+participant "Acceso a datos" as Datos
+database "Base de datos" as BD
+
+Usuario -> Web : Accede al dashboard financiero
+Web -> Seguridad : consultarPermisos(usuario)
+Seguridad --> Web : permisos del usuario
+
+alt Usuario sin permisos
+    Web --> Usuario : Mostrar acceso denegado
+
+else Usuario autorizado
+    Web -> Dashboard : consultarIndicadores(periodo)
+    Dashboard -> Datos : obtenerDatosFinancieros(periodo)
+    Datos -> BD : consultarFacturasYPagos(periodo)
+    BD --> Datos : datos financieros
+    Datos --> Dashboard : datos financieros
+
+    Dashboard --> Web : gráficos e indicadores
+    Web --> Usuario : Mostrar dashboard
+
+    opt Usuario solicita exportar informe
+        Usuario -> Web : Selecciona periodo y formato
+        Web -> Informes : generarInforme(periodo, formato)
+        Informes -> Datos : consultarDatos(periodo)
+        Datos -> BD : obtenerFacturacion(periodo)
+        BD --> Datos : resultados
+        Datos --> Informes : datos del informe
+        Informes --> Web : archivo PDF o CSV
+        Web --> Usuario : Descargar informe
+    end
+end
+
+@enduml
