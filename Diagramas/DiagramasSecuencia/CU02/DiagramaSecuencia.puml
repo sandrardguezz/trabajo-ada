@@ -1,1 +1,35 @@
-Codigo plantUML
+@startuml
+autonumber
+
+title CU02 - Gestionar usuarios, roles y permisos
+
+actor "Administrador / Superadministrador" as Usuario
+boundary "Interfaz web" as Web
+control "Gestión de usuarios,\nroles y permisos" as Gestion
+participant "Acceso a datos" as Datos
+database "Base de datos" as BD
+participant "Servicio de mensajería" as Mensajeria
+
+Usuario -> Web : Introduce datos, rol y clientes asignados
+Web -> Gestion : crearUsuario(datos, rol, clientes)
+
+Gestion -> Gestion : validarPermisosYDatos()
+
+alt Permisos insuficientes o correo no válido
+    Gestion --> Web : Error de validación
+    Web --> Usuario : Mostrar motivo del error
+
+else Datos correctos
+    Gestion -> Datos : guardarUsuarioYAsignaciones(datos)
+    Datos -> BD : registrarUsuarioYAsignaciones(datos)
+    BD --> Datos : confirmación
+    Datos --> Gestion : usuario creado
+
+    Gestion -> Mensajeria : enviarInvitacion(correo)
+    Mensajeria --> Gestion : resultado del envío
+
+    Gestion --> Web : operación completada
+    Web --> Usuario : Mostrar confirmación
+end
+
+@enduml
