@@ -1,1 +1,36 @@
-Codigo plantUML
+@startuml
+
+title CU11 - Búsqueda y filtrado
+
+actor "Administrador / Usuario Operativo" as Usuario
+boundary "Interfaz web" as Web
+control "Búsqueda y filtrado" as Busqueda
+participant "Seguridad y usuarios" as Seguridad
+participant "Acceso a datos" as Datos
+database "Base de datos" as BD
+
+Usuario -> Web : Introduce término de búsqueda\no criterios de filtrado
+Web -> Busqueda : buscar(criterios, usuario)
+
+Busqueda -> Seguridad : consultarPermisos(usuario)
+Seguridad --> Busqueda : ámbito de acceso permitido
+
+Busqueda -> Datos : consultar(criterios, permisos)
+Datos -> BD : buscarRegistros(criterios, permisos)
+BD --> Datos : resultados
+Datos --> Busqueda : resultados filtrados
+
+alt Se encuentran resultados
+    Busqueda --> Web : listado de clientes,\ncontactos y/o facturas
+    Web --> Usuario : muestra resultados estructurados
+
+else No hay resultados
+    Busqueda --> Web : lista vacía
+    Web --> Usuario : "No hay resultados para esta búsqueda"\n+ opción de limpiar filtros
+end
+
+opt Usuario operativo con acceso restringido
+    Busqueda --> Web : omite registros sin permiso
+end
+
+@enduml
