@@ -1,51 +1,51 @@
-# Diagrama de Secuencia - CU05: Gestionar Acuerdos Comerciales y Tarifas
-
-```plantuml
 @startuml
+autonumber
 title CU05 - Gestionar Acuerdos Comerciales y Tarifas
 
 actor "Usuario Operativo \no Administrador" as Usuario
-boundary "Pantalla" as Pantalla
-control "Sistema" as Sistema
+boundary "Interfaz web" as Interfaz
+control "Acuerdos comerciales y tarifas" as Acuerdos
+control "Gestión de clientes y contactos" as Clientes
 database "Base de datos" as BD
 
-Usuario -> Pantalla : Seleccionar cliente y crear nuevo acuerdo
-Pantalla -> Sistema : Solicitar creación de acuerdo
-Sistema -> BD : Comprobar precondición (cliente dado de alta)
-BD --> Sistema : Cliente válido y activo
+Usuario -> Interfaz : Seleccionar cliente y crear nuevo acuerdo
+Interfaz -> Acuerdos : Solicitar creación de acuerdo
+Acuerdos -> Clientes : Comprobar precondición (cliente dado de alta)
+Clientes -> BD : Consultar estado del cliente
+BD --> Clientes : Cliente válido y activo
+Clientes --> Acuerdos : Confirmar cliente válido y activo
 
-Usuario -> Pantalla : Definir fecha, servicio, tarifa, responsable y descuento
-Pantalla -> Sistema : Enviar datos del acuerdo
+Usuario -> Interfaz : Definir fecha, servicio, tarifa, responsable y descuento
+Interfaz -> Acuerdos : Enviar datos del acuerdo
 
 alt [Descuento superior al umbral (Excepción)]
-    Sistema -> BD : Guardar acuerdo en estado "Pendiente"
-    BD --> Sistema : Confirmar guardado temporal
-    Sistema -> Pantalla : Mostrar aviso de aprobación pendiente
-    Pantalla --> Usuario : Notificar que requiere validación superior
-    Sistema -> Sistema : Notificar al Administrador/SuperAdmin
+    Acuerdos -> BD : Guardar acuerdo en estado "Pendiente"
+    BD --> Acuerdos : Confirmar guardado temporal
+    Acuerdos -> Interfaz : Mostrar aviso de aprobación pendiente
+    Interfaz --> Usuario : Notificar que requiere validación superior
+    Acuerdos -> Acuerdos : Notificar al Administrador/SuperAdmin
     
-    Usuario -> Pantalla : Revisar y aprobar acuerdo (Rol Admin)
-    Pantalla -> Sistema : Confirmar aprobación
-    Sistema -> BD : Cambiar estado a "Activo"
-    BD --> Sistema : Confirmar activación
+    Usuario -> Interfaz : Revisar y aprobar acuerdo (Rol Admin)
+    Interfaz -> Acuerdos : Confirmar aprobación
+    Acuerdos -> BD : Cambiar estado a "Activo"
+    BD --> Acuerdos : Confirmar activación
 
 else [Descuento normal o sin descuento (Flujo Principal)]
-    Sistema -> BD : Guardar y activar acuerdo
-    BD --> Sistema : Acuerdo guardado exitosamente
-    Sistema -> Pantalla : Notificar activación inmediata
-    Pantalla --> Usuario : Mostrar confirmación de éxito
+    Acuerdos -> BD : Guardar y activar acuerdo
+    BD --> Acuerdos : Acuerdo guardado exitosamente
+    Acuerdos -> Interfaz : Notificar activación inmediata
+    Interfaz --> Usuario : Mostrar confirmación de éxito
 end
 
 opt [Revisión anual (Flujo Alternativo)]
-    Sistema -> BD : Detectar cambio en rango de facturación del cliente
-    BD --> Sistema : Devolver datos actualizados
-    Sistema -> Pantalla : Proponer nueva tarifa
-    Pantalla --> Usuario : Mostrar propuesta de actualización
-    Usuario -> Pantalla : Validar nueva tarifa
-    Pantalla -> Sistema : Enviar confirmación de actualización
-    Sistema -> BD : Actualizar acuerdo comercial
-    BD --> Sistema : Confirmar actualización
+    Acuerdos -> BD : Detectar cambio en rango de facturación del cliente
+    BD --> Acuerdos : Devolver datos actualizados
+    Acuerdos -> Interfaz : Proponer nueva tarifa
+    Interfaz --> Usuario : Mostrar propuesta de actualización
+    Usuario -> Interfaz : Validar nueva tarifa
+    Interfaz -> Acuerdos : Enviar confirmación de actualización
+    Acuerdos -> BD : Actualizar acuerdo comercial
+    BD --> Acuerdos : Confirmar actualización
 end
 
 @enduml
-```
