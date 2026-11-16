@@ -1,1 +1,46 @@
 Codigo plantUML
+
+@startuml
+title CU03 - Gestionar clientes y contactos
+
+actor "Administrador / Usuario Operativo" as Usuario
+boundary "Interfaz web" as Web
+control "Gestión de clientes" as Gestion
+participant "Acceso a datos" as Datos
+database "Base de datos" as BD
+
+Usuario -> Web : Introduce datos fiscales, comerciales\ny contacto principal
+Web -> Gestion : crearCliente(datos, contacto)
+Gestion -> Gestion : validarDatos()
+Gestion -> Datos : buscarCliente(idFiscal, nombre)
+Datos -> BD : consultarCliente(idFiscal, nombre)
+BD --> Datos : coincidencias
+Datos --> Gestion : coincidencias
+
+alt Faltan datos obligatorios
+    Gestion --> Web : error de validación
+    Web --> Usuario : resalta campos en rojo\ny no guarda
+else Cliente duplicado (activo)
+    Gestion --> Web : aviso de duplicado
+    Web --> Usuario : obliga a revisar antes de guardar
+else Cliente inactivo
+    Gestion -> Datos : reactivarCliente(idCliente)
+    Datos -> BD : actualizarEstado(activo)
+    Gestion --> Web : ficha histórica recuperada
+    Web --> Usuario : muestra cliente reactivado
+else Cliente nuevo
+    Gestion -> Datos : guardarCliente(datos, contacto)
+    Datos -> BD : insertarClienteYContacto()
+    Gestion --> Web : cliente creado
+    Web --> Usuario : cliente disponible para\nacuerdos comerciales
+end
+
+opt Añadir más contactos
+    Usuario -> Web : añade contacto con su función
+    Web -> Gestion : añadirContacto(idCliente, contacto)
+    Gestion -> Datos : guardarContacto(idCliente, contacto)
+    Datos -> BD : insertarContacto()
+    Gestion --> Web : contacto añadido
+end
+
+@enduml
