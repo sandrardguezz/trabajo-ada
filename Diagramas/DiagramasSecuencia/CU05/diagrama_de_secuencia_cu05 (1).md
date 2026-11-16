@@ -55,10 +55,3 @@ end
 
 @enduml
 ```
-
-## Resumen de Cambios Aplicados
-
-* **`autonumber`**: Añadido al inicio del diagrama para numerar automáticamente cada interacción.
-* **`Interfaz web`**: Sustituye al participante `Pantalla` en todas las llamadas y respuestas.
-* **`Acuerdos comerciales y tarifas`**: Sustituye al participante `Sistema` en todo el flujo (incluida la autonotificación al administrador).
-* **`Gestión de clientes y contactos`**: Añadido como nuevo elemento de control (`control`) para intermediar en la comprobación de la precondición del cliente contra la base de datos.
