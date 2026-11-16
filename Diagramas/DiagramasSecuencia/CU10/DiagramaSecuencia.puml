@@ -1,1 +1,41 @@
 Codigo plantUML
+
+@startuml
+title CU10 - Procesar la baja del cliente
+
+actor "Administrador / Usuario Operativo" as Usuario
+boundary "Interfaz web" as Web
+control "Gestión de clientes" as Gestion
+participant "Acceso a datos" as Datos
+database "Base de datos" as BD
+
+alt Baja inmediata
+    Usuario -> Web : solicita la baja del cliente
+    Web -> Gestion : procesarBaja(idCliente)
+    Gestion -> Datos : cancelar()
+    Datos -> BD : detener facturación recurrente
+    BD --> Datos : suscripción actualizada
+    Datos --> Gestion : facturación recurrente detenida
+    Gestion -> Datos : consultarFacturasPendientes(idCliente)
+    Datos --> Gestion : facturas pendientes
+    Gestion -> Gestion : mantenerSeguimientoCobro()
+    Gestion -> Datos : darDeBaja()
+    Datos -> BD : actualizarCliente(inactivo)
+    BD --> Datos : cliente actualizado
+    Datos --> Gestion : cliente dado de baja
+    Gestion --> Web : cliente dado de baja
+    Web --> Usuario : cliente inactivo con su historial
+else Baja programada a futuro
+    Usuario -> Web : programa la baja para fin de mes
+    Web -> Gestion : programarBaja(idCliente, fecha)
+    Gestion --> Web : se ejecutará automáticamente en esa fecha
+end
+
+opt Intento de borrado definitivo
+    Usuario -> Web : eliminar cliente
+    Web -> Gestion : eliminarCliente(idCliente)
+    Gestion --> Web : acción denegada, forzado el borrado lógico
+    Web --> Usuario : cliente inactivo
+end
+
+@enduml
