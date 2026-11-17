@@ -1,3 +1,4 @@
+
 @startuml
 
 entity "Usuario" as usuario {
@@ -15,6 +16,7 @@ entity "CLIENTE" as cliente {
   --
   * id_usuario_responsable : INT <<FK>>
   * nombre_comercial : VARCHAR(150)
+  * razon_social : VARCHAR(150)
   * id_fiscal : VARCHAR(30)
   * domicilio_fiscal : VARCHAR(255)
   * pais : CHAR(2)
@@ -44,6 +46,9 @@ entity "SUSCRIPCION" as suscripcion {
   * precio_mensual_centimos : INT
   * descuento_porcentaje : DECIMAL(5,2)
   * plazo_pago_dias : INT
+    fecha_acuerdo_comercial : DATE
+    condiciones_acuerdo_comercial : TEXT
+    documento_acuerdo_comercial : VARCHAR(255)
   * fecha_inicio : DATE
     fecha_fin : DATE
   * estado : ENUM('pendiente','activa','pausada','cancelada')
@@ -81,7 +86,10 @@ entity "FACTURA" as factura {
   * precio_unitario_centimos_lineas : INT
   * descuento_porcentaje_lineas : INT
   * impuesto_porcentaje_lineas : INT
+  --
+  UNIQUE(serie, numero)
 }
+
 entity "PAGO" as pago {
   * id_pago : INT <<PK>>
   --
