@@ -1,1 +1,50 @@
 Codigo plantUML
+
+@startuml
+title CU06 - Gestionar suscripciones y pausas
+
+actor "Administrador / Usuario Operativo" as Usuario
+boundary "Interfaz web" as Web
+control "Gestión de suscripciones" as Gestion
+participant "Acceso a datos" as Datos
+database "Base de datos" as BD
+
+Usuario -> Web : activa la suscripción a mitad de mes
+Web -> Gestion : activarSuscripcion(idCliente, plan, fechaInicio)
+Gestion -> Gestion : calcularProrrateo(diasRestantes)
+Gestion --> Web : mostrar(desgloseFinanciero)
+Web --> Usuario : desglose financiero
+Usuario -> Web : confirma la suscripción
+Web -> Gestion : confirmarSuscripcion()
+Gestion -> Datos : guardarSuscripcion(activa)
+Datos -> BD : insertarSuscripcion()
+BD --> Datos : suscripción guardada
+Datos --> Gestion : suscripción activa
+Gestion --> Web : suscripción operativa
+Web --> Usuario : suscripción activa
+
+alt Exclusión de prorrateo
+    Usuario -> Web : marca cobrar el mes completo
+    Web -> Gestion : excluirProrrateo(idSuscripcion)
+    Gestion --> Web : mostrar(desgloseMesCompleto)
+    Web --> Usuario : se cobra el mes completo
+else Pausar suscripción
+    Usuario -> Web : indica motivo y fechas de pausa
+    Web -> Gestion : pausarSuscripcion(idSuscripcion, motivo, inicio, fin)
+    Gestion -> Gestion : validarFechas()
+    Gestion -> Datos : guardarPausa(idSuscripcion, motivo, inicio, fin)
+    Datos -> BD : actualizarSuscripcion(pausada)
+    BD --> Datos : suscripción actualizada
+    Datos --> Gestion : suscripción pausada
+    Gestion --> Web : facturación detenida hasta fin de pausa
+    Web --> Usuario : suscripción pausada
+end
+
+opt Fechas de pausa incongruentes
+    Usuario -> Web : fecha de fin anterior a la de inicio
+    Web -> Gestion : pausarSuscripcion(idSuscripcion, motivo, inicio, fin)
+    Gestion --> Web : error en las fechas
+    Web --> Usuario : operación rechazada
+end
+
+@enduml
