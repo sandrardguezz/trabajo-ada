@@ -16,38 +16,41 @@ activate controlador
 
 controlador -> database: validarPago(id_factura, datos)
 activate database
-database --> controlador: True
+database --> controlador: resultadoValidacion
 deactivate database
 
-controlador -> database: registrarPago(datos)
-activate database
+alt resultadoValidacion == True
+  controlador -> database: registrarPago(datos)
+  activate database
+  database -> Pago: crearPago()
+  activate Pago
+  Pago --> database: pago
+  deactivate Pago
+  database --> controlador: True
+  deactivate database
 
-
-database -> Pago: crearPago()
-activate Pago
-Pago --> database: pago
-deactivate Pago
-
-database --> controlador: True
-deactivate database
-
-opt si la factura tiene recordatorios activos
+  opt si la factura tiene recordatorios activos
        controlador -> recordatorios: detenerRecordatorios(id_factura)
        activate recordatorios
        recordatorios --> controlador: True
        deactivate recordatorios
+  end
+  
+  controlador -> email: enviarNotificacion(clienteEmail, facturaPDF)
+  activate email
+  email --> controlador: True 
+'Aqui si se pone la respuesta, porque se considera que se debe mandar el email de la factura, para que el flujo     siga, no como en el ejemplo de clase'
+  deactivate email
+
+  controlador --> interfaz: True
+else resultadoValidacion == False
+  controlador --> interfaz: False
+'Hay un error en el pago'
 end
 
-controlador -> email: enviarNotificacion(clienteEmail, facturaPDF)
-activate email
-email --> controlador: True 
-'Aqui si se pone la respuesta, porque se considera que se debe mandar el emial de la factura, para que el flujo siga, no como en el ejemplo de clase'
-deactivate email
-
-controlador --> interfaz: True
 deactivate controlador
 
-interfaz --> user: True
+interfaz --> user: resultado
 deactivate interfaz
 
 
