@@ -1,4 +1,5 @@
 @startuml
+title CU08-Proceso de Pagos
 autonumber
 actor Usuario as user
 participant InterfazFuenteExterna as interfaz
