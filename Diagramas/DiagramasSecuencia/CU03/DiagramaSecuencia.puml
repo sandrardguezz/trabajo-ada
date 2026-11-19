@@ -3,6 +3,8 @@ Codigo plantUML
 @startuml
 title CU03 - Gestionar clientes y contactos
 
+autonumber
+
 actor "Administrador / Usuario Operativo" as Usuario
 boundary "Interfaz web" as Web
 control "Gestión de clientes" as Gestion
