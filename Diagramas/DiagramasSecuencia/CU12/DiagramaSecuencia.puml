@@ -1,3 +1,4 @@
+
 @startuml
 autonumber
 
@@ -31,12 +32,24 @@ else Usuario autorizado
     opt Usuario solicita exportar informe
         Usuario -> Web : Selecciona periodo y formato
         Web -> Informes : generarInforme(periodo, formato)
+
         Informes -> Datos : consultarDatos(periodo)
         Datos -> BD : obtenerFacturacion(periodo)
         BD --> Datos : resultados
         Datos --> Informes : datos del informe
-        Informes --> Web : archivo PDF o CSV
-        Web --> Usuario : Descargar informe
+
+        alt Exportación normal
+            Informes --> Web : archivo PDF o CSV
+            Web --> Usuario : Descargar informe
+
+        else Exportación masiva
+            Informes --> Web : exportación iniciada
+            Web --> Usuario : Mostrar aviso de procesamiento
+
+            Informes ->> Informes : procesarEnSegundoPlano()
+            Informes ->> Web : notificarInformeDisponible()
+            Web --> Usuario : Avisar de que el informe está listo
+        end
     end
 end
 
