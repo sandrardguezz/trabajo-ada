@@ -5,36 +5,67 @@ title CU10 - Procesar la baja del cliente
 
 actor "Administrador / Usuario Operativo" as Usuario
 boundary "Interfaz web" as Web
-control "Gestión de clientes" as Gestion
+control "Gestión de clientes" as Clientes
+control "Gestión de suscripciones y bajas" as Bajas
 participant "Acceso a datos" as Datos
 database "Base de datos" as BD
 
 alt Baja inmediata
     Usuario -> Web : solicita la baja del cliente
-    Web -> Gestion : procesarBaja(idCliente)
-    Gestion -> Datos : cancelar()
-    Datos -> BD : detener facturación recurrente
+    Web -> Clientes : procesarBaja(idCliente)
+    Clientes -> Bajas : darDeBajaSuscripcion(idCliente)
+
+    Bajas -> Datos : detener Facturacion Recurrente
+    Datos -> BD : actualizar suscripción
     BD --> Datos : suscripción actualizada
-    Datos --> Gestion : facturación recurrente detenida
-    Gestion -> Datos : consultarFacturasPendientes(idCliente)
-    Datos --> Gestion : facturas pendientes
-    Gestion -> Gestion : mantenerSeguimientoCobro()
-    Gestion -> Datos : darDeBaja()
-    Datos -> BD : actualizarCliente(inactivo)
+    Datos --> Bajas : facturación recurrente detenida
+
+    Bajas -> Datos : consultarFacturasPendientes(idCliente)
+    Datos -> BD : buscar facturas pendientes de cobro
+    BD --> Datos : facturas pendientes
+    Datos --> Bajas : facturas pendientes
+
+    Bajas -> Bajas : mantenerSeguimientoCobro()
+
+    Bajas -> Datos : darDeBaja()
+    Datos -> BD : actualizar estado de la suscripción
+    BD --> Datos : suscripción en estado de baja
+    Datos --> Bajas : suscripción dada de baja
+    Bajas --> Clientes : suscripción dada de baja
+
+    Clientes -> Datos : actualizarCliente(inactivo)
+    Datos -> BD : actualizar estado del cliente
     BD --> Datos : cliente actualizado
-    Datos --> Gestion : cliente dado de baja
-    Gestion --> Web : cliente dado de baja
+    Datos --> Clientes : cliente dado de baja
+
+    Clientes --> Web : cliente dado de baja
     Web --> Usuario : cliente inactivo con su historial
+
 else Baja programada a futuro
     Usuario -> Web : programa la baja para fin de mes
-    Web -> Gestion : programarBaja(idCliente, fecha)
-    Gestion --> Web : se ejecutará automáticamente en esa fecha
+    Web -> Clientes : programarBaja(idCliente, fecha)
+    Clientes -> Bajas : programarBaja(idCliente, fecha)
+    Bajas -> Datos : guardarBaja(idCliente, fecha)
+    Datos -> BD : registrar baja programada
+    BD --> Datos : baja programada
+    Datos --> Bajas : baja programada
+    Bajas --> Clientes : baja programada
+    Clientes --> Web : baja programada
+    Web --> Usuario : baja programada. Hasta la fecha está operativo el cliente.
+
+    Bajas -> Bajas : ejecutarBajaProgramada(idSuscripcion)
+    Bajas -> Clientes : notificarBajaEjecutada(idCliente)
 end
 
 opt Intento de borrado definitivo
     Usuario -> Web : eliminar cliente
-    Web -> Gestion : eliminarCliente(idCliente)
-    Gestion --> Web : acción denegada, forzado el borrado lógico
+    Web -> Clientes : eliminarCliente(idCliente)
+    Clientes -> Clientes : comprobar Normativa 
+    Clientes -> Datos : actualizarCliente(inactivo)
+    Datos -> BD : actualizar estado del cliente
+    BD --> Datos : cliente actualizado
+    Datos --> Clientes : cliente actualizado, inactivo
+    Clientes --> Web : acción denegada, forzado el borrado lógico
     Web --> Usuario : cliente inactivo
 end
 
