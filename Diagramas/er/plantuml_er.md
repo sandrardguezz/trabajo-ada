@@ -38,8 +38,8 @@ entity "CONTACTO" as contacto {
   * activo : BOOLEAN
 }
 
-entity "SUSCRIPCION" as suscripcion {
-  * id_suscripcion : INT <<PK>>
+entity "ACUERDO_COMERCIAL" as acuerdo {
+  * id_acuerdo : INT <<PK>>
   --
   * id_cliente : INT <<FK>>
   * plan : VARCHAR(100)
@@ -49,6 +49,13 @@ entity "SUSCRIPCION" as suscripcion {
     fecha_acuerdo_comercial : DATE
     condiciones_acuerdo_comercial : TEXT
     documento_acuerdo_comercial : VARCHAR(255)
+  * estado : ENUM('pendiente','vigente','finalizado')
+}
+
+entity "SUSCRIPCION" as suscripcion {
+  * id_suscripcion : INT <<PK>>
+  --
+  * id_acuerdo : INT <<FK>>
   * fecha_inicio : DATE
     fecha_fin : DATE
   * estado : ENUM('pendiente','activa','pausada','cancelada')
@@ -122,6 +129,7 @@ entity "INCIDENCIA" as incidencia {
     id_factura : INT <<FK>>
   * id_usuario_responsable : INT <<FK>>
   * descripcion : TEXT
+    comentarios : TEXT
   * prioridad : VARCHAR(10)
   * estado : VARCHAR(20)
   * fecha_creacion : DATE
@@ -150,9 +158,11 @@ usuario     ||--o{ incidencia   : "tiene una"
 usuario     |o--o{ auditoria    : "realiza"
 
 cliente     ||--o{ contacto     : "tiene"
-cliente     ||--o{ suscripcion  : "contrata"
+cliente     ||--o{ acuerdo      : "firma"
 cliente     ||--o{ factura      : "recibe"
 cliente     ||--o{ incidencia   : "tiene"
+
+acuerdo     ||--o{ suscripcion  : "establece"
 
 suscripcion |o--o{ factura      : "genera"
 
