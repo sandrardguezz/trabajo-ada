@@ -3,6 +3,8 @@ Codigo plantUML
 @startuml
 title CU06 - Gestionar suscripciones y pausas
 
+autonumber
+
 actor "Administrador / Usuario Operativo" as Usuario
 boundary "Interfaz web" as Web
 control "Gestión de suscripciones" as Gestion
