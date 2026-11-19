@@ -3,17 +3,23 @@ title CU07-Generacion de Facturas
 autonumber
 actor Administrador as admin
 participant InterfazGeneracionFacturas as interfaz
+participant PlanificadorSistema as sistema
 control ControladorFactura as controlador
 participant ValidadorAnomalias as validar
 database DataBase as database
 participant Factura
 participant GeneradorPDF as PDF
 
-admin -> interfaz: introducirDatos(cliente, concepto, importe, descuento)
-activate interfaz
-
-interfaz -> controlador: solicitarCreacionFactura(datos)
-activate controlador
+alt Factura Puntual (Manual)
+    admin -> interfaz: introducirDatos(cliente, concepto, importe, descuento)
+    activate interfaz
+    interfaz -> controlador: solicitarCreacionFactura(datos)
+    activate controlador
+else Factura Recurrente (Automática)
+    activate sistema
+    sistema -> controlador: generarFacturaSuscripcion(id_suscripcion)
+    activate controlador
+end
 
 controlador -> validar: validarDatos(datos)
 activate validar
@@ -29,21 +35,25 @@ alt resultadoValidacion == True
    deactivate Factura
    database --> controlador: True
    deactivate database
+
    controlador -> PDF: generarPDF(Factura) 
    activate PDF
    PDF --> controlador: facturaPDF
    deactivate PDF
-   controlador --> interfaz: True
-else resultadoValidacion == False
-   controlador --> interfaz: False
+else resultadoValidacion == False 
 'Ha habido un fallo, ya que ha detectado anomalías' 
 end  
 
-
-deactivate controlador
-
-interfaz --> admin: resultado
-deactivate interfaz
+alt Factura Puntual (Manual)
+    controlador --> interfaz: resultadoValidacion
+    deactivate controlador
+    interfaz --> admin: resultadoFactura
+    deactivate interfaz
+else Factura Recurrente (Automática)
+    controlador --> sistema: resultadoValidacion
+    deactivate controlador
+    deactivate sistema
+end
 
 
 @enduml
