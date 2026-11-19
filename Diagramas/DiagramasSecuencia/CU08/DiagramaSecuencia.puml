@@ -2,7 +2,8 @@
 title CU08-Proceso de Pagos
 autonumber
 actor Usuario as user
-participant InterfazFuenteExterna as interfaz
+participant InterfazConciliacion as interfaz
+actor PasarelaPagos as pasarela
 control ControladorPago as controlador
 database DataBase as database
 participant Pago
@@ -11,6 +12,11 @@ participant ServicioEmail as email
 
 user -> interfaz: procesarPago(id_factura, fuente, importe)
 activate interfaz
+
+interfaz -> pasarela: llevarPagoaPasarela(id_factura, importe)
+activate pasarela
+pasarela --> interfaz: pagoExternoCompletado(datos)
+deactivate pasarela
 
 interfaz -> controlador: conciliarPago(id_factura, datos)
 activate controlador
