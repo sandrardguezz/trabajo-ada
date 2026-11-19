@@ -1,7 +1,7 @@
-Codigo plantUML
-
 @startuml
 title CU10 - Procesar la baja del cliente
+
+autonumber
 
 actor "Administrador / Usuario Operativo" as Usuario
 boundary "Interfaz web" as Web
