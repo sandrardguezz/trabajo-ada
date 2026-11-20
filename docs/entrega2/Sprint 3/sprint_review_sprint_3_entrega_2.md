@@ -12,7 +12,7 @@
 
 El objetivo del Sprint 3 de la segunda entrega era integrar y cerrar todos los artefactos de diseño del sistema Turbine, asegurando la coherencia total entre el diagrama físico Entidad-Relación, el diagrama UML de clases, el diagrama de arquitectura o componentes y los 13 diagramas de secuencia.
 
-Asimismo, se planteó completar el Informe Scrum final, elaborar la presentación de diapositivas y el guion de la exposición, y realizar una revisión general y un ensayo previo al cierre de la entrega el 22 de noviembre.
+Asimismo, se planteó completar el Informe Scrum final, elaborar la presentación de diapositivas y el guion de la exposición, y realizar una revisión general y un ensayo previo al cierre de la entrega el 24 de noviembre.
 
 ---
 
@@ -60,8 +60,8 @@ Al cierre de este sprint únicamente queda pendiente realizar el ensayo general 
 Durante el desarrollo del Sprint 3 se tomaron las siguientes decisiones clave:
 
 - **Bloqueo previo de modelos estructurales:** Se decidió no dar por válidos los ajustes en los diagramas de secuencia hasta confirmar que el ER físico, el UML de clases y la arquitectura estaban cerrados y alineados entre sí, cumpliendo la mejora propuesta en el Sprint 2.
-- **Enfoque de la exposición por hilo conductor:** Para que la presentación sea clara y dinámica dentro del tiempo disponible, se decidió no explicar uno por uno los 13 diagramas de secuencia, sino dejar constancia de que están realizados y utilizar un flujo continuo representativo del sistema basado en CU07 (Crear y modificar facturas), CU09 (Recordatorios, notificaciones y comunicaciones) y CU08 (Procesar y conciliar pagos).
-- **Mantenimiento de la fecha interna de cierre:** Independientemente de que la exposición se fije finalmente para el 24 de noviembre o el 1 de diciembre, se decidió mantener el 22 de noviembre como fecha límite para tener toda la entrega y las diapositivas listas.
+- **Enfoque de la exposición por hilo conductor:** Para que la presentación sea clara y dinámica dentro del tiempo disponible, se decidió no explicar uno por uno los 13 diagramas de secuencia, sino dejar constancia de que están realizados y utilizar un flujo continuo representativo del sistema.
+- **Mantenimiento de la fecha interna de cierre:** Independientemente de que la exposición se fije para el 24 de noviembre, se decidió mantener el 22 de noviembre como fecha límite personal para tener toda la entrega y las diapositivas listas y así tener tiempo de preparar la exposición.
 
 ---
 
@@ -91,9 +91,9 @@ Asimismo, unificar el nivel de detalle técnico aportado por cada miembro para a
 
 ## 9. Preparación de la exposición
 
-Con la entrega cerrada el 22 de noviembre, el equipo centrará sus últimos esfuerzos en el ensayo general de la exposición.
+Con la entrega cerrada el 24 de noviembre, el equipo centrará sus últimos esfuerzos en el ensayo general de la exposición.
 
-Si la exposición se celebra finalmente el 24 de noviembre, el 23 de noviembre se realizará un ensayo completo cronometrado y se aplicarán únicamente correcciones menores. En caso de que la exposición pase al 1 de diciembre, la semana adicional se aprovechará para realizar varios ensayos, pulir las transiciones entre ponentes y revisar detalles finales de la presentación.
+Se realizará un ensayo completo cronometrado y se aplicarán únicamente correcciones menores. Se aprovechará para realizar varios ensayos, pulir las transiciones entre ponentes y revisar detalles finales de la presentación.
 
 ---
 
