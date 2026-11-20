@@ -12,7 +12,7 @@
 
 El objetivo del Sprint 3 de la segunda entrega se centra en la integración, la documentación y la preparación de la exposición. Durante este sprint aplicaremos en el diagrama físico Entidad-Relación, el diagrama UML de clases y el diagrama de arquitectura o componentes la lista unificada de cambios recogida al final del Sprint 2, y ajustaremos los 13 diagramas de secuencia para garantizar una coherencia total entre todos los modelos del sistema.
 
-Asimismo, cerraremos el Informe Scrum final de la entrega, elaboraremos la presentación de diapositivas y el guion de la exposición, y realizaremos una revisión general y un ensayo con todo el equipo antes del cierre de la entrega el 22 de noviembre.
+Asimismo, cerraremos el Informe Scrum final de la entrega, elaboraremos la presentación de diapositivas y el guion de la exposición, y realizaremos una revisión general y un ensayo con todo el equipo antes del cierre de la entrega el 24 de noviembre.
 
 ---
 
@@ -20,7 +20,7 @@ Asimismo, cerraremos el Informe Scrum final de la entrega, elaboraremos la prese
 
 Para este tercer y último sprint de la segunda entrega se mantiene la estructura de roles establecida desde el inicio: Telesforo Romero continúa como Scrum Master y Adiel Rodríguez como Product Owner.
 
-Siguiendo la rotación acordada para los tres sprints, la elaboración de la documentación Scrum del Sprint 3 (Sprint Planning, Sprint Review y Sprint Retrospective) corresponde a Adiel Rodríguez. Por su parte, la recopilación y cierre del Informe Scrum final de toda la entrega recae en Robert Marian Mustafa.
+Siguiendo la rotación acordada para los tres sprints, la elaboración de la documentación Scrum del Sprint 3 (Sprint Planning, Sprint Review y Sprint Retrospective) me corresponde a mí, Adiel Rodríguez. Por su parte, la recopilación y cierre del Informe Scrum final de toda la entrega recae en Robert Marian Mustafa.
 
 En cuanto a la preparación de la defensa del proyecto, Sandra Rodríguez se encargará del montaje y unificación de las diapositivas, mientras que Loretta Martín asumirá la redacción y unificación del guion final de la exposición, contando ambos con el contenido técnico aportado por los responsables de cada artefacto.
 
@@ -49,7 +49,7 @@ Continuaremos trabajando sobre el mismo repositorio de GitHub y el tablero del G
 
 Cada integrante mantendrá actualizado el estado de sus tareas (pendiente, en proceso, en revisión o terminada) para que todo el equipo tenga visibilidad del avance real en los días previos a la entrega.
 
-En el repositorio se subirán las versiones definitivas de los diagramas estructurales y de secuencia, el Informe Scrum final, la presentación de diapositivas y el guion de la exposición, asegurando que todo el material esté centralizado y revisado antes del 22 de noviembre.
+En el repositorio se subirán las versiones definitivas de los diagramas estructurales y de secuencia, el Informe Scrum final, la presentación de diapositivas y el guion de la exposición, asegurando que todo el material esté centralizado y revisado antes del 24 de noviembre.
 
 ---
 
@@ -88,7 +88,7 @@ Para dar por finalizado el Sprint 3 y cerrar la Entrega 2 deberán cumplirse los
 - Los 13 diagramas de secuencia están actualizados con la nomenclatura final, han pasado la revisión cruzada y coinciden con los modelos estructurales.
 - El Informe Scrum final está redactado, revisado y completo.
 - La presentación de diapositivas y el guion final están unificados y estructurados en torno a un hilo conductor claro del sistema.
-- Se ha realizado una revisión general del repositorio y un ensayo completo de la exposición con todo el equipo antes del 22 de noviembre.
+- Se ha realizado una revisión general del repositorio y un ensayo completo de la exposición con todo el equipo antes del 24 de noviembre.
 
 ---
 
@@ -104,11 +104,9 @@ Como Scrum Master, Telesforo Romero supervisará el cumplimiento de estos plazos
 
 ## 9. Posibles riesgos o bloqueos
 
-El principal riesgo de este sprint es el margen de tiempo disponible, ya que entre el 14 y el 22 de noviembre debemos cerrar todos los diagramas, la documentación Scrum y el material de la exposición.
+El principal riesgo de este sprint es el margen de tiempo disponible, ya que el 24 de noviembre debemos cerrar todos los diagramas, la documentación Scrum y el material de la exposición.
 
 Otro riesgo es que al aplicar una corrección en uno de los modelos estructurales surja alguna nueva incompatibilidad con los otros dos modelos o con varios diagramas de secuencia, retrasando el inicio de la preparación de las diapositivas.
-
-Por último, existe la incertidumbre sobre si la exposición tendrá lugar el 24 de noviembre o el 1 de diciembre. Para mitigar este riesgo, planificaremos el trabajo con el objetivo de tener toda la entrega y la presentación cerradas el 22 de noviembre, reservando el 23 de noviembre para un ensayo final si se expone el 24, o aprovechando la semana adicional para perfeccionar la defensa si finalmente se realiza el 1 de diciembre.
 
 ---
 
