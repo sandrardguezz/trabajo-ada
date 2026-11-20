@@ -192,62 +192,60 @@ Por tanto, de cara al Sprint 2, se planificó una revisión conjunta de todos lo
 
 ### 4.2. Objetivo del Sprint
 
-El objetivo fundamental del Sprint 1 ha sido establecer una primera estructura del sistema TurbineH, elaborando distintos modelos con una base común para representar de forma adecuada la organización de nuestra aplicación.
+El objetivo fundamental del Sprint 2 ha sido realizar los diagramas de secuencia de los 13 casos de uso definidos en la primera entrega, manteniendo la coherencia con los modelos estructurales del Sprint 1.
 
-Principalmente, nos dedicamos a las siguientes tareas:
-
-* Diagrama Entidad-Relación (ER)
-* Diagrama UML de clases
-* Diagrama de componentes
-
-Para realizarlas, revisamos los requisitos y casos de uso de la entrega anterior con el fin de mantener una correlación directa con ellos.
+Además, nos propusimos llevar a cabo una revisión conjunta de todos los diagramas estructurales (Diagrama ER, Diagrama UML de clases y Diagrama de componentes) para dejarlos en una versión completa y adecuada.
 
 ---
 
 ### 4.3. Planificación del Sprint
 
-Además de establecer una nueva organización de roles dentro del equipo, definimos las tareas necesarias para el desarrollo del Sprint 1, quedando la asignación de la siguiente manera:
+De cara a esta iteración, la organización de roles del equipo se mantuvo igual que en la anterior debido al corto margen de tiempo disponible. Por su parte, la asignación de los diagramas de secuencia quedó repartida de la siguiente manera:
 
-| Área de trabajo | Responsable/s |
+| Responsable/s | Casos de uso |
 |---|---|
-| Diagrama ER físico | Telesforo Romero, Hugo Trujillo |
-| Diagrama UML de clases | Sergio Ruiz Navas, Adiel Rodríguez |
-| Diagrama de componentes | Sandra Rodríguez |
-| Documentación Scrum del Sprint 1 | Telesforo Romero |
+| Sandra Rodríguez | CU11 |
+| Hugo Trujillo | CU03, CU06, CU10 |
+| Telesforo Romero | CU02, CU12 |
+| Loretta Martín | CU01, CU04, CU09 |
+| Robert Marian Mustafa | CU07, CU08 |
+| Sergio Ruiz Navas | CU13 |
+| Adiel Rodríguez | CU05 |
 
-Previamente, todo el equipo realizó una revisión conjunta de los requisitos y casos de uso de la entrega anterior para establecer un punto de partida común en todos los diagramas.
+De forma paralela, todos los integrantes participaron en puestas en común para definir las versiones mejoradas de los modelos propuestos en el anterior Sprint, siendo los responsables originales de cada diagrama los encargados de actualizar su documentación.
+
+Una vez finalizados los diagramas de secuencia, se buscó realizar una revisión conjunta de cara a mantener una correlación clara entre todos los modelos entregables. Por último, la documentación Scrum del Sprint 2 fue realizada por Sergio Ruiz Navas.
 
 ---
 
 ### 4.4. Dependencias entre tareas
 
-Durante la planificación, identificamos que los distintos modelos estaban estrechamente relacionados, por lo que no podían desarrollarse de forma totalmente aislada. Para construir una base común y coordinar los diagramas de la mejor manera posible, seguimos esta secuencia de trabajo:
+Durante la planificación nos dimos cuenta de que los diagramas de secuencia dependían directamente de los modelos estructurales del Sprint 1, ya que los objetos, clases y componentes que intervienen en cada interacción deben coincidir con los definidos en dichos modelos. Gracias a esto, definimos el siguiente flujo de trabajo:
 
-**Revisión de requisitos y casos de uso → Desarrollo en paralelo (Diagrama UML de clases, Diagrama ER y Diagrama de componentes)**
+**Revisión de los diagramas propuestos en el Sprint anterior (Diagrama UML de clases, Diagrama ER y Diagrama de componentes) → Desarrollo de los diagramas de secuencia → Revisión cruzada de los diagramas de secuencia**
 
-Aunque los diagramas se realizaron en paralelo -siendo fundamental la comunicación interna-, se tomó el Diagrama de clases como referencia inicial para trasladar sus conceptos al resto de modelos, cerrando con el Diagrama de componentes por su carácter más visual de cara a la presentación. 
+En la práctica, la revisión de los diagramas anteriores y la elaboración de los diagramas de secuencia se realizaron de forma paralela. Aunque tomamos como punto de partida la mejora de los modelos estructurales,
+mientras desarrollábamos los diagramas de secuencia fuimos detectando nuevos aspectos que debíamos añadir o eliminar en los primeros para lograr una mayor coherencia. Por ello, la comunicación interna resultó fundamental para coordinar todos los ajustes.
 
 ---
 
 ### 4.5. Organización mediante GitHub
 
-Para organizar el trabajo continuamos utilizando el repositorio de GitHub junto con el tablero de GitHub Projects creados en la primera entrega. 
+En este segundo Sprint, el tablero de GitHub Projects resultó clave para coordinar la carga de trabajo entre los siete integrantes, especialmente al repartir los trece diagramas de forma individual.
 
-Dentro del tablero representamos el estado de las diferentes tareas, donde cada integrante actualizó su progreso a medida que avanzaba, permitiendo conocer en todo momento qué tareas estaban pendientes, cuáles en curso y cuáles finalizadas.
-
-GitHub también sirvió para almacenar los diagramas - tanto en formato imagen *(.png)* como su código fuente en PlantUML *(.puml)* - y la documentación del Sprint, manteniendo un registro completo de los cambios.
+Cada miembro actualizó el estado de sus casos de uso asignados a medida que los completaba, mientras que en el repositorio se centralizaron los nuevos archivos (*.png* y *.puml*) de los diagramas de secuencia, dejando registradas sus versiones base pendientes de revisión para el siguiente Sprint.
 
 ---
 
 ### 4.6. Seguimiento del Sprint
 
-Durante el Sprint 1 se realizaron tres puntos de seguimiento para comprobar la evolución del trabajo y coordinar las tareas del equipo:
+Durante el Sprint 2 se realizaron tres puntos de seguimiento para comprobar la evolución del trabajo y coordinar las tareas del equipo:
 
-#### Seguimiento 1 - Organización del equipo
+#### Seguimiento 1 - Organización del trabajo
 
-En este primer punto se establecieron las responsabilidades de cada integrante, acordando utilizar los requisitos y casos de uso de la primera entrega como referencia para el diseño de los diagramas.
+En este primer punto se mantuvo la distribución de roles establecida anteriormente y se asignaron los diagramas de secuencia de los casos de uso correspondientes a cada integrante.
 
-Además, se formalizó la rotación de roles para que todos los miembros tuvieran la oportunidad de desempeñar distintas funciones.
+Además, se acordó utilizar como referencia los modelos desarrollados durante el Sprint 1 y  la nomenclatura común definida, con el fin de que los diagramas de secuencia fueran coherentes con ellos.
 
 * Asistentes: Sandra Rodríguez, Adiel Rodríguez, Telesforo Romero, Hugo Trujillo, Sergio Ruiz Navas, Loretta Martín y Robert Marian Mustafa.
 
@@ -255,21 +253,19 @@ Además, se formalizó la rotación de roles para que todos los miembros tuviera
 
 #### Seguimiento 2 - Elaboración de los diagramas
 
-Durante el desarrollo del Sprint 1 se avanzó en los modelos previstos.
+Durante el desarrollo del Sprint 2 se avanzó en los diagramas de secuencia de cada caso de uso, representando las interacciones entre los actores, las clases y los componentes del sistema.
 
-*Diagrama ER: Se identificaron las principales tablas del sistema junto con sus atributos, claves primarias, claves foráneas y relaciones. 
-*Diagrama UML de clases: Se elaboró una primera versión con las clases principales del sistema, sus atributos, métodos y relaciones.
-*Diagrama de componentes: Se preparó una representación general de la arquitectura del sistema y varios diagramas detallados para observar sus partes.
+Al contar ya con las primeras versiones de los diagramas estructurales del anterior Sprint, pudimos iniciar su revisión; sin embargo, al modelar los flujos en los diagramas de secuencia detectamos nuevos aspectos a mejorar en ellos.
 
-* Asistentes: Sandra Rodríguez, Adiel Rodríguez, Telesforo Romero, Hugo Trujillo, Sergio Ruiz Navas (el resto del equipo también colaboró aportando ideas de diseño y manteniendo una comunicación constante para lograr modelos sencillos y completos).
+* Asistentes: Sandra Rodríguez, Adiel Rodríguez, Telesforo Romero, Hugo Trujillo, Sergio Ruiz Navas, Loretta Martín y Robert Marian Mustafa.
 
 ---
 
 #### Seguimiento 3 - Revisión del trabajo realizado
 
-Al finalizar el Sprint, las primeras versiones de los tres diagramas quedaron almacenadas y disponibles en nuestro repositorio de GitHub, permitiendo disponer de una base inicial de datos, clases y componentes.
+Para finalizar el Sprint, una vez elaborados los diagramas de secuencia, todos los integrantes realizamos una puesta en común para definir las mejoras necesarias y cerrar los diagramas estructurales del primer Sprint.
 
-No obstante, se detectó la necesidad de continuar revisándolos en el siguiente sprint para garantizar una total coherencia entre ellos.
+Para ello, cada uno de los integrantes redactó una propuesta de cambios necesarios sobre dichos modelos y posteriormente se unificaron en una única lista común, de modo que cada responsable pudiera aplicar la actualización de sus diagramas correspondientes.
 
 * Asistentes: Sandra Rodríguez, Adiel Rodríguez, Telesforo Romero, Hugo Trujillo, Sergio Ruiz Navas, Loretta Martín y Robert Marian Mustafa.
 
@@ -277,29 +273,32 @@ No obstante, se detectó la necesidad de continuar revisándolos en el siguiente
 
 ### 4.7. Estado final del Sprint 
 
-Al cierre del Sprint 1 se habían elaborado las primeras versiones de los modelos principales de diseño, aunque quedaban aspectos por pulir, principalmente comprobar la coherencia entre modelos y unificar los nombres comunes. Asimismo, se verificó que todos los requisitos y casos de uso de la primera entrega estuvieran reflejados.
+Al cierre del Sprint 2 se habían elaborado las primeras versiones de los 13 diagramas de secuencia junto con la lista conjunta y unificada de los cambios necesarios para los diagramas ER, UML de clases y de componentes. No obstante, quedaron dos tareas pendientes para el siguiente sprint:
 
-Una de las decisiones más importantes tomadas fue mantener el diagrama ER lo más sencillo y estable posible, fijándolo como base estructural para evitar cambios en cascada en el resto de modelos ante posibles ajustes conceptuales.
+* Aplicar los cambios acordados en los diagramas del Sprint 1 a partir de la lista unificada al final del sprint.
+* Revisar de forma exhaustiva los diagramas de secuencia para garantizar su total coherencia con los modelos estructurales una vez corregidos.
+
+Por tanto, ni la segunda versión de los diagramas estructurales ni la coherencia definitiva entre todos los modelos pudieron darse por cerradas todavía. Una de las decisiones más importantes tomadas fue no modificar los diagramas estructurales de forma individual e inmediata, sino recopilar primero todas las propuestas de cada integrante para asegurar una revisión ordenada.
 
 ---
 
 ### 4.8. Valoración del Sprint 
 
-El objetivo principal del Sprint 1 se alcanzó satisfactoriamente, ya que se obtuvo una primera versión bastante completa de los tres diagramas estructurales previstos, proporcionando una base sólida para continuar con el diseño del sistema en el siguiente Sprint.
+El objetivo principal del Sprint 2 se alcanzó en cuanto a la elaboración de las primeras versiones de los 13 diagramas de secuencia correspondientes con cada caso de uso y la identificación unificada de mejoras para los modelos estructurales, aunque por falta de tiempo no se llegaron a aplicar dichos cambios ni a cerrar la revisión final de los diagramas de secuencia.
 
 #### Aspectos positivos:
 
-* División eficaz del trabajo entre varios integrantes, permitiendo avanzar en paralelo.
-* Uso de los requisitos y casos de uso de la primera entrega como referencia directa.
-* Empleo de GitHub para centralizar los diagramas y facilitar su consulta a todo el equipo.
-* Definición de un diagrama ER sencillo y estable que minimiza futuros cambios estructurales.
+* División eficaz del trabajo de los diagramas de secuencia entre todos los integrantes, permitiendo avanzar en paralelo.
+* Decisión de recopilar y unificar los cambios necesarios antes de modificar los diagramas, logrando que todo el equipo participara en el diseño y que las correcciones respondieran a criterios comunes.
+* Empleo de GitHub para centralizar las primeras versiones de los diagramas de secuencia y facilitar su consulta a todo el equipo.
 
 #### Dificultades encontradas:
 
-* Determinar el nivel de detalle adecuado de cada modelo.
-* Mantener la coherencia terminológica entre los diagramas al ser diseñados en paralelo por distintos compañeros.
+* Al elaborar los diagramas de secuencia, surgieron nuevos aspectos a corregir y ampliar en los diagramas del Sprint 1.
+* Mantener la coherencia terminológica entre los diagramas de secuencia al ser diseñados en paralelo por los compañeros.
+* Coordinar al equipo para redactar, unificar y aplicar los cambios en pocos días sin frenar el avance de los diagramas de secuencia.
 
-Por tanto, de cara al Sprint 2, se planificó una revisión conjunta de todos los diagramas para unificar los conceptos principales, manteniendo la comunicación interna como eje clave antes de abordar los diagramas de secuencia.
+Por tanto, de cara al Sprint 3, cada responsable deberá aplicar las correcciones acordadas en los diagramas del Sprint 1 y realizar la segunda versión y definitiva de los diagramas de secuencia para garantizar una coherencia total en toda la entrega.
 
 ---
 
@@ -314,7 +313,7 @@ Por tanto, de cara al Sprint 2, se planificó una revisión conjunta de todos lo
 
 ### 5.2. Objetivo del Sprint
 
-El objetivo fundamental del Sprint 1 ha sido establecer una primera estructura del sistema TurbineH, elaborando distintos modelos con una base común para representar de forma adecuada la organización de nuestra aplicación.
+El objetivo fundamental del Sprint 3 ha sido establecer una primera estructura del sistema TurbineH, elaborando distintos modelos con una base común para representar de forma adecuada la organización de nuestra aplicación.
 
 Principalmente, nos dedicamos a las siguientes tareas:
 
