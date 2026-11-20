@@ -27,7 +27,7 @@ Las tareas planificadas para este sprint y su estado al cierre del mismo son las
 | Informe Scrum final de la Entrega 2 | Robert Marian Mustafa | Completada |
 | Presentación de diapositivas | Sandra Rodríguez | Completada |
 | Guion final de la exposición | Loretta Martín | Completada |
-| Revisión general y ensayo de la exposición | Todo el equipo | En proceso |
+| Revisión general y ensayo de la exposición | Todo el equipo | Completada |
 | Sprint Planning, Sprint Review y Sprint Retrospective (Sprint 3) | Adiel Rodríguez | Completada |
 
 ---
