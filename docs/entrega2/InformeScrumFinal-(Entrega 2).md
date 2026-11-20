@@ -422,6 +422,48 @@ El objetivo principal del Sprint 1 se alcanzó satisfactoriamente, ya que se obt
 
 Por tanto, de cara al Sprint 2, se planificó una revisión conjunta de todos los diagramas para unificar los conceptos principales, manteniendo la comunicación interna como eje clave antes de abordar los diagramas de secuencia.
 
+---
+## 6. Evolución entre Sprint 1, Sprint 2 y Sprint 3
+
+Como hemos visto anteriormente, los sprints reflejan fases claramente diferenciadas dentro del proyecto.
+
+| Sprint 1 | Sprint 2 | Sprint 3 |
+|---|---|---|
+| Primeras versiones de los diagramas propuestos (ER, UML de clases y de componentes | Lista común y unificada de los cambios finales sobre ellos | Propuestas finales y completas |
+| -- | Primera versión de los diagramas de secuencia | Versión final y completa | 
+| Documentación parcial | Documentación parcial | Documentación finalizada y completa |
+| Objetivo alcanzado parcialmente | Objetivo alcanzado parcialmente | Objetivo alcanzado completamente |
+
+El Sprint 1 permitió cambiar roles dentro del equipo para que todos podamos realizar diferentes tareas y se crearon las primeras versiones de los diagramas ER, UML de clases y de componentes, siendo estos los que englobaban todos los requisitos y casos de uso analizados en la primera entrega.
+
+El Sprint 2 permitió mejorar esos modelos estructurales definiendo una lista común unificada por todos los integrantes (aplicada en el Sprint 3) y realizar los diagramas de secuencia sobre cada caso de uso, ayundándonos también a identificar otros posibles cambios de cara a los diagramas del Sprint 1.
+
+EL Sprint 3 permitió realizar toda la documentación final de la entrega, donde ya pudimos aplicar todos los cambios sobre los diagramas y realizando una segunda versión completa de los diagramas de secuencia, para así dar por finalizada la entrega.
+
+---
+
+## 7. Comunicación y coordinación del equipo
+
+La coordinación ha sido fundamental debido a las dependencias existentes entre las tareas.
+
+Aunque había responsables asignados a cada tarea, la comunicación interna ha sido realmente importante para realizar cambios sobre los distintos modelos y mejorar el proyecto entero. Por otra parte, todos los miembros hemos participado en todas las tareas, donde unos tenían el rol de pedir ayuda y los otros de aportarle ayuda, siendo esto una parte fundamental dentro de un proyecto.
+
+Para documentar y centralizar todo el proyecto, GitHub ha sido una herramienta bastante útil al proporcionar un espacio común para almacenar la documentación y realizar el seguimiento de las tareas.
+
+---
+
+## 8. Herramientas utilizadas
+
+---
+
+## 9. Resultado Global
+
+---
+
+## 10. Conclusión
+
+
+
 
 
 
