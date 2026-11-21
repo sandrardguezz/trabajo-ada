@@ -1,0 +1,24 @@
+@startuml
+title CU09.2 - Consultar tareas y marcar factura en disputa
+
+actor "Usuario Operativo" as Usuario
+boundary "Pantalla" as Pantalla
+participant "Sistema" as Sistema
+database "Base de datos" as BD
+
+Usuario -> Pantalla: Abrir la aplicación
+Pantalla -> Sistema: Solicitar avisos y tareas
+Sistema -> BD: Consultar bandeja de tareas
+BD --> Sistema: Devolver avisos y tareas
+Sistema --> Pantalla: Mostrar avisos y tareas
+Pantalla --> Usuario: Presentar la bandeja
+
+opt El usuario marca una factura en disputa
+    Usuario -> Pantalla: Marcar factura y poner fecha de revisión
+    Pantalla -> Sistema: Guardar estado y fecha
+    Sistema -> BD: Actualizar factura y pausar recordatorios
+    Sistema --> Pantalla: Confirmar el cambio
+    Pantalla --> Usuario: Mostrar confirmación
+end
+
+@enduml
