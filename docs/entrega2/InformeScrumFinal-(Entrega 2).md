@@ -481,6 +481,7 @@ Como resultado final, se han completado y verificado los siguientes entregables:
 * Material para la exposición (presentación de diapositivas y guion)
 
 Más allá de los artefactos entregados, el desarrollo iterativo a lo largo de los tres sprints ha permitido mejorar progresivamente la organización interna, la comunicación y la coordinación de todo el equipo.
+
 ---
 
 ## 10. Conclusión
