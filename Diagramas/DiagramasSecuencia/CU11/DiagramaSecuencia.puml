@@ -2,21 +2,24 @@
 
 title CU11 - Búsqueda y filtrado
 
+autonumber
+
 actor "Administrador / Usuario Operativo" as Usuario
 boundary "Interfaz web" as Web
+control "Seguridad y usuarios" as Seguridad
 control "Búsqueda y filtrado" as Busqueda
-participant "Seguridad y usuarios" as Seguridad
 participant "Acceso a datos" as Datos
 database "Base de datos" as BD
 
-Usuario -> Web : Introduce término de búsqueda\no criterios de filtrado
-Web -> Busqueda : buscar(criterios, usuario)
+Usuario -> Web : Introduce término de búsqueda\ny/o filtros
 
-Busqueda -> Seguridad : consultarPermisos(usuario)
-Seguridad --> Busqueda : ámbito de acceso permitido
+Web -> Seguridad : consultarPermisos(usuario)
+Seguridad --> Web : ámbito de acceso permitido
 
-Busqueda -> Datos : consultar(criterios, permisos)
-Datos -> BD : buscarRegistros(criterios, permisos)
+Web -> Busqueda : buscar(criterios, ámbito)
+
+Busqueda -> Datos : consultar(criterios, ámbito)
+Datos -> BD : buscarRegistros(criterios, ámbito)
 BD --> Datos : resultados
 Datos --> Busqueda : resultados filtrados
 
@@ -27,10 +30,6 @@ alt Se encuentran resultados
 else No hay resultados
     Busqueda --> Web : lista vacía
     Web --> Usuario : "No hay resultados para esta búsqueda"\n+ opción de limpiar filtros
-end
-
-opt Usuario operativo con acceso restringido
-    Busqueda --> Web : omite registros sin permiso
 end
 
 @enduml
